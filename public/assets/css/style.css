@@ -9,7 +9,7 @@ header {
 }
 header .brand {
   position: relative;
-  width: 424px;
+  width: 250px;
   overflow: hidden;
   margin: 8px auto;
   font-size: 0;
@@ -25,7 +25,7 @@ header .brand a:hover {
 }
 /*menu*/
 #ribbon{
-  background-color:black;
+  /*background-color:black;*/
   position:absolute;
   z-index:1000;
   width:100%;
@@ -73,7 +73,7 @@ header .nav-collapse {
 .sf-menu {
   list-style: none;
   padding: 0;
-  margin: 10px 0px;
+  margin: 30px 0px;
   white-space: nowrap;
   height: 43px;
   opacity: inherit !important;
@@ -113,7 +113,7 @@ header .nav-collapse {
   transition: all 0.4s ease-out;
   font: 16.05px raleway,Arial, "Helvetica Neue", Helvetica, sans-serif;
   line-height: 22px;
-  color: #979797;
+  color:#979797;
 }
 .sf-menu > li > a + strong {
   position: absolute;
@@ -125,7 +125,7 @@ header .nav-collapse {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background-color: #8dc63f;
+  background-color:rgb(172,220,60); /*verde claro*/
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
@@ -222,7 +222,7 @@ header .nav-collapse {
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
-  font: 13.950000000000001px Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: 13.950000000000001px raleway,Arial, "Helvetica Neue", Helvetica, sans-serif;
   line-height: 33px;
   color: #919191 !important;
   background-color: transparent !important;
@@ -352,7 +352,7 @@ a.thumbnail:focus {
   float: left;
   width: 49px;
   text-align: left;
-  font: 40.05px 'Trebuchet MS', Arial, sans-serif;
+  font: 40.05px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 1.2em;
   color: #2a2a2a;
 }
@@ -370,7 +370,7 @@ a.thumbnail:focus {
   padding: 0px 0px 0px 0px;
 }
 .dl-horizontal dd p:first-child {
-  font: 19.950000000000003px Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: 19.950000000000003px raleway,Arial, "Helvetica Neue", Helvetica, sans-serif;
   line-height: 28px;
   color: #adadad;
   text-transform: lowercase;
@@ -404,7 +404,7 @@ a.thumbnail:focus {
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
-  font: bold 13.05px 'Trebuchet MS', Arial, sans-serif;
+  font: bold 13.05px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 1.2em;
   text-transform: uppercase;
   color: #ffffff;
@@ -470,7 +470,7 @@ a.thumbnail:focus {
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
-  font: bold 13.950000000000001px 'Trebuchet MS', Arial, sans-serif;
+  font: bold 13.950000000000001px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 1.2em;
   color: #585858;
   background: none;
@@ -595,7 +595,7 @@ figure {
 }
 h2 {
   position: relative;
-  font: 40.05px 'Trebuchet MS', Arial, sans-serif;
+  font: 40.05px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 48px;
   color: #2a2a2a;
   padding: 0px 0px 0px 0px;
@@ -632,7 +632,7 @@ h2.special {
 }
 h3,
 h4 {
-  font: 19.950000000000003px Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: 19.950000000000003px raleway,Arial, "Helvetica Neue", Helvetica, sans-serif;
   line-height: 22px;
   color: #adadad;
   text-transform: lowercase;
@@ -690,7 +690,7 @@ hr {
   text-decoration: none;
 }
 #camera_1 .camera_caption > div > div p:first-child {
-  font: 40.05px 'Trebuchet MS', Arial, sans-serif;
+  font: 40.05px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 1.2em;
   color: #ffffff;
   padding: 0px 0px 0px 0px;
@@ -704,7 +704,7 @@ hr {
   color: #2a2a2a;
 }
 #camera_1 .camera_caption > div > div p:first-child + p {
-  font: 40.05px 'Trebuchet MS', Arial, sans-serif;
+  font: 40.05px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 1.2em;
   color: #ffffff;
   padding: 0px 0px 0px 0px;
@@ -827,7 +827,8 @@ hr {
 }
 .list4,
 .list7 {
-  margin: 47px 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
+  padding-left: 0px;
 }
 .list4 li,
 .list7 li {
@@ -836,7 +837,7 @@ hr {
 }
 .list4 li a,
 .list7 li a {
-  font: 18px 'Trebuchet MS', Arial, sans-serif;
+  font: 18px raleway,'Trebuchet MS', Arial, sans-serif;
   line-height: 1.2em;
   color: #6e7067;
   text-transform: uppercase;
@@ -1190,7 +1191,7 @@ form.search > a:hover {
 /*--- content end ------*/
 /*------ footer ------- */
 footer > div:first-child {
-  background: url(../img/footer_bg.jpg);
+  background:url(../images/base/footer_bg.jpg);
   padding: 69px 0 35px;
 }
 footer > div:first-child + div {
@@ -1201,7 +1202,7 @@ footer > div:first-child + div {
   padding: 44px 0px 9px 0px;
 }
 footer p {
-  font: 13.950000000000001px 'Trebuchet MS', Arial, sans-serif;
+  font: 13.950000000000001px raleway, 'Trebuchet MS', Arial, sans-serif !important;
   line-height: 1.2em;
   color: #6c705c;
   text-transform: uppercase;
@@ -1225,7 +1226,7 @@ footer h2 {
   margin: 0px 0px 32px 0px;
 }
 footer address {
-  font: bold 18px 'Trebuchet MS', Arial, sans-serif;
+  font: bold 18px raleway, 'Trebuchet MS', Arial, sans-serif !important;
   line-height: 26px;
   color: #6e7067;
   padding: 0px 0px 0px 0px;
@@ -1234,7 +1235,7 @@ footer address {
 footer address.mail {
   background: url(../img/mail_icon.png) 0px 0px no-repeat;
   padding-left: 32px;
-  font: 16.05px Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: 16.05px raleway, Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   line-height: 1.2em;
   color: #c5be22;
   text-transform: lowercase;
@@ -1270,13 +1271,14 @@ footer .soc_icons li a:hover img {
 footer .links {
   margin: -3px 0px 0px 0px;
   float: right;
+  padding-left: 0px !important;
 }
 footer .links li {
   margin-left: 35px;
   float: left;
 }
 footer .links li a {
-  font: 12px 'Trebuchet MS', Arial, sans-serif;
+  font: 12px raleway, 'Trebuchet MS', Arial, sans-serif !important;
   line-height: 1.2em;
   color: #b1b895;
   text-transform: uppercase;
@@ -1561,7 +1563,7 @@ footer .links li > a:hover {
 }
 @media (max-width: 480px) {
   header h1.brand {
-    width: 100%;
+    width: 250px;/*width: 100%;*/
   }
   .list1 > li {
     width: 100%;

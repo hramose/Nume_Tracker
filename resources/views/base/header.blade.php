@@ -73,11 +73,11 @@
             </select>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top:65px;">
         <div class="col-md-12">
             <h1 class="brand">
                 <a href="#">
-                    <img src="./About us_files/logo.png" alt="">
+                    <img class="img-responsive center-block" src="assets/images/base/logo.png" alt="">
                 </a>
             </h1>
         </div>

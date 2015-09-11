@@ -26,6 +26,10 @@
 		</header>
 
 		<!--@yield('content')-->
+
+		<footer>
+			@include('base.footer')
+		</footer>
  
 		<!-- SCRIPTS -->
 		<!-- jQuery -->
