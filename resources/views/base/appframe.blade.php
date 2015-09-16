@@ -22,6 +22,7 @@
 	</head>
 	<body>
 		<header>
+			@include('base.navbar')
 			@include('base.header')
 		</header>
 
@@ -34,7 +35,9 @@
 		<!-- SCRIPTS -->
 		<!-- jQuery -->
 		{!! Html::script('assets/js/jquery-1.11.3.js') !!}
+		<!--superfish.js-->
+		{!! Html::script('assets/js/superfish.js') !!}
 		<!-- Bootstrap JavaScript -->
-		{!! Html::script('assets/js/bootstrap.min.js') !!}
+		{!! Html::script('assets/js/bootstrap.js') !!}
 	</body>
 </html>

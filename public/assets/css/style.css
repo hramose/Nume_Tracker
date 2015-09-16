@@ -24,13 +24,6 @@ header .brand a:hover {
   text-decoration: none;
 }
 /*menu*/
-#ribbon{
-  /*background-color:black;*/
-  position:absolute;
-  z-index:1000;
-  width:100%;
-  opacity: 0.85;
-}
 .select-menu {
   width: 100%;
   margin: 12px auto;
@@ -194,12 +187,12 @@ header .nav-collapse {
   position: relative;
   margin: 0px 0px 3px 0px;
   padding-bottom: 4px;
-  background: url(../img/submenu_divider.png) center bottom no-repeat;
+  background: url(../images/base/submenu_divider.png) center bottom no-repeat;
 }
 .sf-menu ul li.sub-menu > a:before {
   content: " ";
   position: absolute;
-  background: url(../img/menu-marker_2.png) 0 0 no-repeat;
+  background: url(../images/base/menu-marker_2.png) 0 0 no-repeat;
   width: 7px;
   height: 5px;
   right: 0;
@@ -245,7 +238,7 @@ header .nav-collapse {
   margin-left: 12px;
   padding-bottom: 1px;
   margin-bottom: 2px;
-  background: url(../img/submenu_divider_2.png) 11px bottom no-repeat;
+  background: url(../images/base/submenu_divider_2.png) 11px bottom no-repeat;
 }
 .sf-menu ul ul li:first-child {
   margin-top: 18px;
@@ -487,7 +480,7 @@ a.thumbnail:focus {
   display: inline-block;
   width: 11px;
   height: 11px;
-  background: url(../img/more_icon.png) 0 no-repeat;
+  background: url(../images/base/more_icon.png) 0 no-repeat;
   margin: 0px 0px -1px 12px;
 }
 .btn.btn-link:hover,
@@ -832,7 +825,7 @@ hr {
 }
 .list4 li,
 .list7 li {
-  background: url(../img/list_icon.png) right 5px no-repeat;
+  background: url(../images/base/list_icon.png) right 5px no-repeat;
   margin-bottom: 13px;
 }
 .list4 li a,
@@ -855,7 +848,7 @@ hr {
   margin: 31px 0px 20px 0px;
 }
 .list7 li {
-  background: url(../img/list_icon.png) left 5px no-repeat;
+  background: url(../images/base/list_icon.png) left 5px no-repeat;
 }
 .list7 li a {
   margin: 0 0 0 27px;
@@ -906,7 +899,7 @@ hr {
   position: absolute;
   top: 0;
   left: 0;
-  background: url('../img/pic_bg_over.png');
+  background: url('../images/base/pic_bg_over.png');
   z-index: 2;
   width: 100%;
   height: 100%;
@@ -926,7 +919,7 @@ hr {
 }
 .sitem_over strong {
   position: relative;
-  background: url('../img/icon_zoom.png') center no-repeat;
+  background: url('../images/base/icon_zoom.png') center no-repeat;
   width: 100%;
   height: 100%;
   display: block;
@@ -1233,9 +1226,9 @@ footer address {
   margin: 0px 0px 26px 0px;
 }
 footer address.mail {
-  background: url(../img/mail_icon.png) 0px 0px no-repeat;
+  background: url(../images/base/mail_icon.png) 0px 0px no-repeat;
   padding-left: 32px;
-  font: 16.05px raleway, Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+  font: 14px raleway, Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   line-height: 1.2em;
   color: #c5be22;
   text-transform: lowercase;
@@ -1246,6 +1239,7 @@ footer address.mail a {
 }
 footer .soc_icons {
   margin: 0px 0px 0px 0px;
+  padding-left: 0px;
 }
 footer .soc_icons li {
   position: relative;

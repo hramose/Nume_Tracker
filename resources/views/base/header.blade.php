@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row" id="ribbon">
+    <div class="row">
         <div class="col-md-12">
             <div class="navbar" id="navigation">
                 <div class="navbar-inner container">
@@ -7,10 +7,10 @@
                         <ul class="sf-menu sf-js-enabled">
                             <li class="active sub-menu">
                                 <a href="#">
-                                    <span>About us</span>
+                                    <span>Home</span>
                                 </a>
                                 <strong></strong>
-                                <ul class="nav sub-menu" style="display: none;">
+                                <!--<ul class="nav sub-menu" style="display: none;">
                                     <li>
                                         <a href="#">mission</a> 
                                     </li>
@@ -28,29 +28,29 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul>
+                                </ul>-->
                             </li>
                             <li>
                                 <a href="#">
-                                    <span>Nutrition </span>
+                                    <span>¿Qué es Nume?</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span>Diets</span>
+                                    <span>Nutrición</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span>Programs</span>
+                                    <span>Contacto</span>
                                 </a>
                                 <strong></strong>
                             </li>
-                            <li class="last">
+                            <li>
                                 <a href="#">
-                                    <span>Contacts</span>
+                                    <span>Enlaces</span>
                                 </a>
                                 <strong></strong>
                             </li>
@@ -73,7 +73,7 @@
             </select>
         </div>
     </div>
-    <div class="row" style="margin-top:65px;">
+    <div class="row" style="margin-top:-30px;">
         <div class="col-md-12">
             <h1 class="brand">
                 <a href="#">

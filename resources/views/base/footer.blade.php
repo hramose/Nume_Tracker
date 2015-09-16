@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <h2>fresh recipes</h2>
                 <ul class="list3">
                     <li>
@@ -57,7 +57,7 @@
                     <a href="#" class="btn btn-default btn-link">view more<span></span></a>
                 </p>
             </div>
-            <div class="col-md-3 col-md-offset-1">
+            <div class="col-sm-3 col-sm-offset-1">
                 <h2>results of the week</h2>
                 <ul class="list4">
                     <li><a href="#">01. maria lee</a></li>
@@ -68,7 +68,7 @@
                     <li><a href="#">06. tommy hamilton</a></li>
                 </ul>
             </div> 
-            <div class="col-md-3 col-md-offset-1">
+            <div class="col-sm-3 col-sm-offset-1">
                 <h2>locations</h2>
                 <address>28 Jackson Blvd Ste 1020 <br>Chicago  <br>IL 60604-2340</address>
                 <hr>
@@ -97,7 +97,7 @@
 <div>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 floatRight1200">
+            <div class="col-sm-6 floatRight1200">
                 <ul class="links">
                     <li class="active"><a href="#">About us</a></li>
                     <li><a href="#">Nutrition</a></li>
@@ -106,7 +106,7 @@
                     <li><a href="#">Contacts</a></li>
                 </ul>
             </div>
-            <div class="col-md-6 floatLeft1200">
+            <div class="col-sm-6 floatLeft1200">
                 <p class="privacy">Nume © 2015 <a href="#">Privacy policy</a>
                 </p>
                 <!-- {%FOOTER_LINK} -->
