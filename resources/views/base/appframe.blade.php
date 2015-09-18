@@ -23,10 +23,10 @@
 	<body>
 		<header>
 			@include('base.navbar')
-			@include('base.header')
+			@yield('menu')
 		</header>
 
-		<!--@yield('content')-->
+		@yield('content')
 
 		<footer>
 			@include('base.footer')

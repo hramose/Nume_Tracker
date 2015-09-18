@@ -29,13 +29,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" style="font-weight:bolder;">Nume Tracker</a>
+          <a class="navbar-brand" href="/" style="font-weight:bolder;">Nume Tracker</a>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-x">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><img class="img-circle" src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
+            <li><a href="/"><img class="img-circle" src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
             <li><a href="#" style="font-weight:bolder;">Iniciar sesión</a></li>
             <li><a href="#">Registrarte</a></li>
             <li>
@@ -55,6 +55,7 @@
                 <li><a href="#">Cerrar sesión</a></li>
               </ul>
             </li>
+            <li><a href="/"><img class="img-circle" src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->

@@ -11,7 +11,7 @@ header .brand {
   position: relative;
   width: 250px;
   overflow: hidden;
-  margin: 8px auto;
+  margin: 0px auto;
   font-size: 0;
   line-height: 0;
 }
@@ -66,7 +66,7 @@ header .nav-collapse {
 .sf-menu {
   list-style: none;
   padding: 0;
-  margin: 30px 0px;
+  margin: 30px 0px 0px 0px;
   white-space: nowrap;
   height: 43px;
   opacity: inherit !important;
@@ -79,7 +79,7 @@ header .nav-collapse {
 .sf-menu > li.sub-menu > a:before {
   content: " ";
   position: absolute;
-  background: url(../images/base/menu-marker.png) center top no-repeat;
+  background: url(../images/home/menu-marker.png) center top no-repeat;
   width: 5px;
   height: 7px;
   right: 50%;
@@ -134,7 +134,7 @@ header .nav-collapse {
   margin-left: -5px;
   width: 9px;
   height: 5px;
-  background: url(../images/base/menu_arrow.png) 0 no-repeat;
+  background: url(../images/home/menu_arrow.png) 0 no-repeat;
   -webkit-transition: all 0.4s ease-out;
   -moz-transition: all 0.4s ease-out;
   -o-transition: all 0.4s ease-out;
@@ -187,12 +187,12 @@ header .nav-collapse {
   position: relative;
   margin: 0px 0px 3px 0px;
   padding-bottom: 4px;
-  background: url(../images/base/submenu_divider.png) center bottom no-repeat;
+  background: url(../images/home/submenu_divider.png) center bottom no-repeat;
 }
 .sf-menu ul li.sub-menu > a:before {
   content: " ";
   position: absolute;
-  background: url(../images/base/menu-marker_2.png) 0 0 no-repeat;
+  background: url(../images/home/menu-marker_2.png) 0 0 no-repeat;
   width: 7px;
   height: 5px;
   right: 0;
@@ -238,7 +238,7 @@ header .nav-collapse {
   margin-left: 12px;
   padding-bottom: 1px;
   margin-bottom: 2px;
-  background: url(../images/base/submenu_divider_2.png) 11px bottom no-repeat;
+  background: url(../images/home/submenu_divider_2.png) 11px bottom no-repeat;
 }
 .sf-menu ul ul li:first-child {
   margin-top: 18px;
@@ -419,11 +419,9 @@ a.thumbnail:focus {
 }
 .btn:before {
   left: 0;
-  background: url(../img/more_shadow_L.png) 0 no-repeat;
 }
 .btn:after {
   right: 0;
-  background: url(../img/more_shadow_R.png) 0 no-repeat;
 }
 .btn:hover,
 .btn:active {
@@ -606,14 +604,14 @@ h2.extra:before {
   float: left;
   width: 146px;
   height: 32px;
-  background: url(../img/page1_extra1.png) 0 no-repeat;
+  background: url(../images/home/page1_extra1.png) 0 no-repeat;
   margin: 10px 11px 0px 150px;
 }
 h2.extra:after {
   float: right;
   width: 117px;
   height: 32px;
-  background: url(../img/page1_extra2.png) 0 0 no-repeat;
+  background: url(../images/home/page1_extra2.png) 0 0 no-repeat;
   margin: 10px 175px 0px 14px;
 }
 h2.special {
@@ -748,6 +746,7 @@ hr {
 .list1 {
   margin-top: 55px;
   margin-bottom: 67px;
+  padding-left: 0px;
 }
 .list1 li {
   text-align: center;
@@ -770,12 +769,13 @@ hr {
 .list2 {
   margin-top: 62px;
   margin-bottom: 23px;
+  padding-left: 0px;
 }
 .list2 li {
-  background: url(../img/list_icon_big.png) 40px 14px no-repeat;
-  border-bottom: 1px solid #f3f3f3;
+  background: url(../images/home/list_icon_big.png) 40px 14px no-repeat;
   margin-bottom: 53px;
   padding-bottom: 55px;
+  height: 300px;
 }
 .list2 li.preLast {
   border: none;
@@ -1364,8 +1364,16 @@ footer .links li > a:hover {
   h2.extra:after {
     display: none;
   }
+
+  .list2{
+    margin-bottom: 62px;
+  }
+  .list1 li {
+    height: auto;
+  }
   .list2 li {
     padding-bottom: 0;
+    height: auto;
   }
   .floatLeft1200,
   .floatRight1200 {
@@ -1428,6 +1436,9 @@ footer .links li > a:hover {
 }
 
 @media (max-width: 767px) {
+  header h1.brand {
+    width: 220px;
+  }
   #navigation{
     display: none;
   }
@@ -1557,12 +1568,15 @@ footer .links li > a:hover {
 }
 @media (max-width: 480px) {
   header h1.brand {
-    width: 250px;/*width: 100%;*/
+    width: 200px;
   }
   .list1 > li {
     width: 100%;
     margin-right: 0;
     float: none;
+  }
+  .list2{
+    margin-bottom: 62px;
   }
   .list2 li {
     background-position: 6px 9px;
@@ -1580,6 +1594,9 @@ footer .links li > a:hover {
   }
 }
 @media (max-width: 400px) {
+  header h1.brand {
+    width: 170px;
+  }
   .margin6 {
     float: none;
     margin-right: 0;
