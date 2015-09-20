@@ -73,7 +73,7 @@
                 <address>28 Jackson Blvd Ste 1020 <br>Chicago  <br>IL 60604-2340</address>
                 <hr>
                 <address class="mail">
-                    <a href="#"><!--email_off-->info@demolink.org<!--/email_off-->
+                    <a href="#"><!--email_off-->info@numetracker.app<!--/email_off-->
                     </a>
                 </address>
                 <ul class="soc_icons">
@@ -99,11 +99,11 @@
         <div class="row">
             <div class="col-sm-6 floatRight1200">
                 <ul class="links">
-                    <li class="active"><a href="#">About us</a></li>
-                    <li><a href="#">Nutrition</a></li>
-                    <li><a href="#">Diets</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">¿Qué es Nume?</a></li>
+                    <li><a href="#">Nutrición</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 floatLeft1200">

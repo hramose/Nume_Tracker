@@ -171,17 +171,17 @@ header .nav-collapse {
   position: absolute;
   list-style: none;
   z-index: 999;
-  width: 123px;
+  width: 100%;
   border: 1px solid #e5e5e5;
   top: 48px !important;
   left: 0px !important;
   display: none;
   overflow: visible;
-  background: #ffffff;
+  background:#ffffff;
   text-align: center;
-  -webkit-border-radius: 24px;
-  -moz-border-radius: 24px;
-  border-radius: 24px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 .sf-menu ul li {
   position: relative;
@@ -217,7 +217,7 @@ header .nav-collapse {
   transition: all 0.4s ease-out;
   font: 13.950000000000001px raleway,Arial, "Helvetica Neue", Helvetica, sans-serif;
   line-height: 33px;
-  color: #919191 !important;
+  color:#919191 !important;
   background-color: transparent !important;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -857,6 +857,7 @@ hr {
 .list5 {
   margin: 39px 0px 0px 0px;
   overflow: hidden;
+  padding-left: 0px;
 }
 .list5 li {
   width: 222px;

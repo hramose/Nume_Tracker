@@ -19,7 +19,7 @@
 </style>
 <div class="container-fluid" style="font-family:raleway; padding:0px;">
     <!-- Second navbar for profile settings -->
-    <nav class="navbar navbar-inverse" style="border-radius:0px;">
+    <nav class="navbar navbar-inverse" style="border-radius:0px; background-color:#303030 !important;">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">

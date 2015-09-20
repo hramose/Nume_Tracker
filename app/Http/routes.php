@@ -15,3 +15,8 @@ Route::get('/', [
     'as' => '/',
     'uses' => 'HomeController@index'
 ]);
+
+Route::get('que-es-nume', [
+    'as' => 'que-es-nume',
+    'uses' => 'HomeController@description'
+]);

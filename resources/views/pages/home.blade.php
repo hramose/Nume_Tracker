@@ -13,37 +13,40 @@
                                     <span>Home</span>
                                 </a>
                                 <strong></strong>
-                                <!--<ul class="nav sub-menu" style="display: none;">
-                                    <li>
-                                        <a href="#">mission</a> 
-                                    </li>
-                                    <li>
-                                        <a href="#">our recipes</a>
-                                    </li>
-                                    <li class="last sub-menu">
-                                        <a href="#">news</a>
-                                        <ul class="nav sub-menu" style="display: none;">
-                                            <li>
-                                                <a href="#">fresh</a>
-                                            </li>
-                                            <li class="last">
-                                                <a href="#">archive</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>-->
                             </li>
-                            <li>
-                                <a href="#">
+                            <li class="sub-menu">
+                                <a href="que-es-nume">
                                     <span>¿Qué es Nume?</span>
                                 </a>
                                 <strong></strong>
+                                <ul class="nav sub-menu" style="display: none;">
+                                    <li>
+                                        <a href="#">Acerca de</a> 
+                                    </li>
+                                    <li>
+                                        <a href="#">Perfiles y necesidades</a>
+                                    </li>
+                                    <li class="last">
+                                        <a href="#">Servicio</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
+                            <li class="sub-menu">
                                 <a href="#">
                                     <span>Nutrición</span>
                                 </a>
                                 <strong></strong>
+                                <ul class="nav sub-menu" style="display: none;">
+                                    <li>
+                                        <a href="#">Su ciencia</a> 
+                                    </li>
+                                    <li>
+                                        <a href="#">Vida saludable</a>
+                                    </li>
+                                    <li class="last">
+                                        <a href="#">Consejos</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="#">
@@ -62,12 +65,12 @@
                 </div>
             </div>
             <select class="select-menu form-control" style="display: none;">
-                <option value="#" selected="selected">Ir a...</option>
-                <option value="#">Home</option>
-                <option value="#">¿Qué es Nume?</option>
-                <option value="#">Nutrición</option>
-                <option value="#">Blog</option>
-                <option value="#">Contacto</option>
+                <option value="#">Ir a...</option>
+                <option value="#" selected="selected"> · Home</option>
+                <option value="#"> · ¿Qué es Nume?</option>
+                <option value="#"> · Nutrición</option>
+                <option value="#"> · Blog</option>
+                <option value="#"> · Contacto</option>
             </select>
         </div>
     </div>

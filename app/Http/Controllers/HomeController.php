@@ -14,4 +14,9 @@ class HomeController extends Controller
     {
     	return view('pages.home');
     }
+
+    public function description()
+    {
+    	return view('pages.nume');
+    }
 }
