@@ -20,3 +20,8 @@ Route::get('que-es-nume', [
     'as' => 'que-es-nume',
     'uses' => 'HomeController@description'
 ]);
+
+Route::get('nutricion', [
+    'as' => 'nutricion',
+    'uses' => 'HomeController@nutrition'
+]);

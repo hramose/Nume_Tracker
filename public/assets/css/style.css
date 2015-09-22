@@ -807,6 +807,7 @@ hr {
 .list3 {
   margin: 41px 0px 34px 0px;
   overflow: hidden;
+  padding-left: 0px;
 }
 .list3 li {
   position: relative;
@@ -872,11 +873,15 @@ hr {
   margin-bottom: 2px;
 }
 .list6 {
+  height: 307px;
   margin-top: 34px;
   margin-bottom: 22px;
+  padding-left: 0px;
 }
 .list6 li {
   margin-bottom: 29px;
+  width: 370px;
+  height: 130px;
 }
 .list6 li img {
   float: left;
@@ -888,6 +893,7 @@ hr {
 .list8 {
   margin: 37px 0px 43px 0px;
   overflow: hidden;
+  padding-left:0px;
 }
 .list8 li {
   margin-bottom: 50px;
@@ -969,7 +975,7 @@ blockquote:before {
   height: 25px;
   top: 2px;
   content: ' ';
-  background: url(../img/quote_icon.png) 0 no-repeat;
+  background: url(../images/nutricion/quote_icon.png) 0 no-repeat;
 }
 .author {
   color: #adadad;
@@ -1234,6 +1240,7 @@ footer address.mail {
   color: #c5be22;
   text-transform: lowercase;
   margin: 37px 0px 30px 0px;
+  height: 20px;
 }
 footer address.mail a {
   color: inherit;
@@ -1404,8 +1411,10 @@ footer .links li > a:hover {
     padding-right: 0;
   }
   .list6 li {
-    width: 19%;
+    width: 115px;
     margin-right: 1%;
+    margin-left: 1%;
+    padding: 0px;
   }
   .list6 li img {
     float: none;

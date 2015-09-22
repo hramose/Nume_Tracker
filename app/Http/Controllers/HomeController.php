@@ -19,4 +19,9 @@ class HomeController extends Controller
     {
     	return view('pages.nume');
     }
+
+    public function nutrition()
+    {
+    	return view('pages.nutricion');
+    }
 }
