@@ -24,4 +24,14 @@ class HomeController extends Controller
     {
     	return view('pages.nutricion');
     }
+
+    public function contact()
+    {
+        return view('pages.contacto');
+    }
+
+    public function blog()
+    {
+        return view('pages.blog');
+    }
 }

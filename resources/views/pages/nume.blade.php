@@ -49,13 +49,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="blog">
                                     <span>Blog</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="contacto">
                                     <span>Contacto</span>
                                 </a>
                                 <strong></strong>

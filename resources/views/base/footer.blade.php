@@ -99,11 +99,11 @@
         <div class="row">
             <div class="col-sm-6 floatRight1200">
                 <ul class="links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">¿Qué es Nume?</a></li>
-                    <li><a href="#">Nutrición</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="que-es-nume">¿Qué es Nume?</a></li>
+                    <li><a href="nutricion">Nutrición</a></li>
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 floatLeft1200">

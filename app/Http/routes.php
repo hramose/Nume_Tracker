@@ -25,3 +25,13 @@ Route::get('nutricion', [
     'as' => 'nutricion',
     'uses' => 'HomeController@nutrition'
 ]);
+
+Route::get('contacto', [
+    'as' => 'contacto',
+    'uses' => 'HomeController@contact'
+]);
+
+Route::get('blog', [
+    'as' => 'blog',
+    'uses' => 'HomeController@blog'
+]);
