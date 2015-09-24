@@ -10,6 +10,9 @@
 		{!! Html::style('assets/css/bootstrap.css') !!}
 		<!-- Template styles -->
 		{!! Html::style('assets/css/style.css') !!}
+		
+		@yield('styles')
+
 		<!-- Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'/>
 
@@ -39,5 +42,7 @@
 		{!! Html::script('assets/js/superfish.js') !!}
 		<!-- Bootstrap JavaScript -->
 		{!! Html::script('assets/js/bootstrap.js') !!}
+
+		@yield('scripts')
 	</body>
 </html>

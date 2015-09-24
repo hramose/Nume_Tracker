@@ -88,13 +88,23 @@
 
 @section('content')
 <div id="content">
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <div class="col-md-12">
                 <hr class="margin1">
-                <iframe src ="http://numetracker.blogspot.mx/" width="100%" height="900" style="border:0px;">
+                <div id="iframe-container">
+                    
+                </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#iframe-container').html("<iframe src =\"http://numetracker.blogspot.mx/\" width=\"100%\" height=\"1280\" style=\"border:0px;\"/>");
+    });
+</script>
 @endsection
