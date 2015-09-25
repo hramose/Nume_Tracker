@@ -64,13 +64,13 @@
                     </div>
                 </div>
             </div>
-            <select class="select-menu form-control" style="display: none;">
+            <select class="select-menu form-control" id="mobile-menu" style="display: none;">
                 <option value="#">Ir a...</option>
-                <option value="#"> · Home</option>
-                <option value="#"> · ¿Qué es Nume?</option>
-                <option value="#"> · Nutrición</option>
-                <option value="#"> · Blog</option>
-                <option value="#" selected="selected"> · Contacto</option>
+                <option value="/"> · Home</option>
+                <option value="que-es-nume"> · ¿Qué es Nume?</option>
+                <option value="nutricion"> · Nutrición</option>
+                <option value="#blog"> · Blog</option>
+                <option value="contacto" selected="selected"> · Contacto</option>
             </select>
         </div>
     </div>
@@ -110,42 +110,42 @@
                     </div>
                     <div class="col-md-8">
                         <h2>Contact Form</h2>
-                        <form id="form1">
+                        {!! Form::open(array('id' => 'form1')) !!}
                             <div class="success" style="display: none;"> Contact form submitted! We will be in touch soon.</div>
                             <fieldset>
                                 <label class="name">
-                                    <input type="text" placeholder="Name:">
+                                    {!! Form::text(null, null, array('placeholder' => 'Name:')) !!}
                                     <span class="error" style="display: none;">*This is not a valid name.</span>
                                     <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <label class="email labelMargin">
-                                    <input type="email" placeholder="E-mail:">
+                                    {!! Form::email(null, null, array('placeholder' => 'Email:')) !!}
                                     <span class="error" style="display: none;">*This is not a valid email address.</span>
                                     <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <label class="phone labelMargin">
-                                    <input type="tel" placeholder="Phone:">
+                                    {!! Form::tel(null, null, array('placeholder' => 'Phone:')) !!}
                                     <span class="error" style="display: none;">*This is not a valid phone number.</span>
                                     <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <label class="message">
-                                    <textarea placeholder="Message:"></textarea>
+                                    {!! Form::textarea(null, null, ['placeholder' => 'Message:']) !!}
                                     <span class="error" style="display: none;">*The message is too short.</span>
                                     <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <div class="clearfix"></div>
                                 <div class="btns">
                                     <p>
-                                        <a href="http://livedemo00.template-help.com/wt_45756/index-4.html#" class="btn btn-link" data-type="submit">
+                                        <a href="#" class="btn btn-link" data-type="submit">
                                             submit<span></span>
                                         </a>
-                                        <a href="http://livedemo00.template-help.com/wt_45756/index-4.html#" class="btn btn-link" data-type="reset">
+                                        <a href="#" class="btn btn-link" data-type="reset">
                                             clear<span></span>
                                         </a>
                                     </p>
                                 </div>
                             </fieldset>
-                        </form>
+                        {!! Form::close() !!}
                         <div class="clearfix"></div>
                     </div>
                 </div>

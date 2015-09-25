@@ -64,13 +64,13 @@
                     </div>
                 </div>
             </div>
-            <select class="select-menu form-control" style="display: none;">
+            <select class="select-menu form-control" id="mobile-menu" style="display: none;">
                 <option value="#">Ir a...</option>
-                <option value="#"> · Home</option>
-                <option value="#"> · ¿Qué es Nume?</option>
-                <option value="#"> · Nutrición</option>
-                <option value="#" selected="selected"> · Blog</option>
-                <option value="#"> · Contacto</option>
+                <option value="/"> · Home</option>
+                <option value="que-es-nume"> · ¿Qué es Nume?</option>
+                <option value="nutricion"> · Nutrición</option>
+                <option value="blog" selected="selected"> · Blog</option>
+                <option value="contacto"> · Contacto</option>
             </select>
         </div>
     </div>
@@ -92,9 +92,7 @@
         <div class="row">
             <div class="col-md-12">
                 <hr class="margin1">
-                <div id="iframe-container">
-                    
-                </div>
+                <div id="iframe-container" style="margin-bottom:40px;"></div>
             </div>
         </div>
     </div>
@@ -104,7 +102,7 @@
 @section('scripts')
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#iframe-container').html("<iframe src =\"http://numetracker.blogspot.mx/\" width=\"100%\" height=\"1280\" style=\"border:0px;\"/>");
+        $('#iframe-container').html("<iframe src =\"http://numetracker.blogspot.mx/\" width=\"100%\" height=\"1000\" style=\"border:0px;\"/>");
     });
 </script>
 @endsection

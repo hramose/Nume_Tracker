@@ -64,13 +64,13 @@
                     </div>
                 </div>
             </div>
-            <select class="select-menu form-control" style="display: none;">
+            <select class="select-menu form-control" id="mobile-menu" style="display: none;">
                 <option value="#">Ir a...</option>
-                <option value="#"> · Home</option>
-                <option value="#" selected="selected"> · ¿Qué es Nume?</option>
-                <option value="#"> · Nutrición</option>
-                <option value="#"> · Blog</option>
-                <option value="#"> · Contacto</option>
+                <option value="/"> · Home</option>
+                <option value="que-es-nume" selected="selected"> · ¿Qué es Nume?</option>
+                <option value="nutricion"> · Nutrición</option>
+                <option value="blog"> · Blog</option>
+                <option value="contacto"> · Contacto</option>
             </select>
         </div>
     </div>

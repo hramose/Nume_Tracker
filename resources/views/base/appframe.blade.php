@@ -43,6 +43,15 @@
 		<!-- Bootstrap JavaScript -->
 		{!! Html::script('assets/js/bootstrap.js') !!}
 
+		<script type="text/javascript">
+		    $(document).ready(function(){
+		        $('#mobile-menu').change(redirect);
+		    });
+
+		    function redirect(){
+		        window.location.href = $('#mobile-menu').val();
+		    }
+		</script>
 		@yield('scripts')
 	</body>
 </html>
