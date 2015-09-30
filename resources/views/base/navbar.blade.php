@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/"><img class="img-circle" src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
             <li><a href="#" style="font-weight:bolder;">Iniciar sesión</a></li>
-            <li><a href="#">Registrarte</a></li>
+            <li><a href="registro">Registrarte</a></li>
             <li>
               <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse-h" aria-expanded="false" aria-controls="nav-collapse-h">Toggle test <i class=""></i> </a>
             </li>
