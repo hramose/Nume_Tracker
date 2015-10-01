@@ -79,6 +79,10 @@
   width:100px;
   height:100px;
 }
+
+#semana input{
+  top:-4px;
+}
 </style>
 @endsection
 

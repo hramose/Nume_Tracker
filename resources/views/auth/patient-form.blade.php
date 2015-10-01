@@ -1,4 +1,5 @@
 {!! Form::open(array('method' => 'post','class' => 'form-horizontal')) !!}
+	{!! Form::hidden('role', 'patient') !!}
 	<br>
 	<h3 id="subtitulo">Cuenta</h3>
 	<br>
@@ -29,13 +30,14 @@
 			<img src="assets/images/base/no-photo.png" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
 		</label>
 		<div class="col-sm-4" id="input-photo">
+			{!! Form::hidden('photo', '') !!}
 			{!! Form::file('photo') !!}
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'Nombre (s) *',array('class' => 'col-sm-2 control-label')) !!}
 		<div class="col-sm-4">
-			{!! Form::text('name',null,array('class' => 'form-control')) !!}
+			{!! Form::text('first_name',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
@@ -74,40 +76,40 @@
 	<br/>
 	<div class="form-group">
 		{!! Form::label(null,'Calle y número',array('class' => 'col-sm-2 control-label')) !!}
-		<div class="col-md-3">
+		<div class="col-sm-3">
 			{!! Form::text('street',null,array('class' => 'form-control')) !!}
 		</div>
-		<div class="col-md-1">
+		<div class="col-sm-1">
 			{!! Form::text('number',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'Colonia',array('class' => 'col-sm-2 control-label')) !!}
-		<div class="col-md-4">
+		<div class="col-sm-4">
 			{!! Form::text('neighborhood',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'Código postal',array('class' => 'col-sm-2 control-label')) !!}
-		<div class="col-md-4">
+		<div class="col-sm-4">
 			{!! Form::text('zip_code',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'Ciudad',array('class' => 'col-sm-2 control-label')) !!}
-		<div class="col-md-4">
+		<div class="col-sm-4">
 			{!! Form::text('city',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'Estado',array('class' => 'col-sm-2 control-label')) !!}
-		<div class="col-md-4">
+		<div class="col-sm-4">
 			{!! Form::text('state',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'País',array('class' => 'col-sm-2 control-label')) !!}
-		<div class="col-md-4">
+		<div class="col-sm-4">
 			{!! Form::text('country',null,array('class' => 'form-control')) !!}
 		</div>
 	</div>
