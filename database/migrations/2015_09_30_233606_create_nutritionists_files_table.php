@@ -13,6 +13,7 @@ class CreateNutritionistsFilesTable extends Migration
     public function up()
     {
         Schema::create('nutritionists_files', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('reviews')->default(0);
             $table->integer('score')->default(0);

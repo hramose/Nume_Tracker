@@ -28,7 +28,8 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['email','role','password','photo','first_name','last_name','birthday','gender','phone',
+                           'street','number','neighborhood','zip_code','city','state','country'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +37,10 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function nutritionist_file()
+    {
+        return $this->hasOne('App\Nutritionist_file');
+    }
 }

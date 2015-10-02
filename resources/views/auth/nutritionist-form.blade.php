@@ -153,16 +153,16 @@
 				{!! Form::checkbox('Mon','Mon', true) !!}L
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('Tue','Tue', false) !!}M
+				{!! Form::checkbox('Tue','Tue', true) !!}M
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('Wed','Wed', false) !!}Mi
+				{!! Form::checkbox('Wed','Wed', true) !!}Mi
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('Thu','Thu', false) !!}J
+				{!! Form::checkbox('Thu','Thu', true) !!}J
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('Fri','Fri', false) !!}V
+				{!! Form::checkbox('Fri','Fri', true) !!}V
 			</label>
 			<label class="checkbox-inline">
 				{!! Form::checkbox('Sat','Sat', false) !!}S
@@ -175,7 +175,7 @@
 	<div class="form-group">
 		{!! Form::label(null,'Horario *',array('class' => 'col-sm-2 control-label')) !!}
 		<div class="col-sm-2">
-			{!! Form::input('time','init_hour',null,array('class' => 'form-control')) !!}
+			{!! Form::input('time','initial_hour',null,array('class' => 'form-control')) !!}
 		</div>
 		<div class="col-sm-2">
 			{!! Form::input('time','final_hour',null,array('class' => 'form-control')) !!}
