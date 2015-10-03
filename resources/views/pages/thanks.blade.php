@@ -90,67 +90,18 @@
 <div id="content">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-offset-2 col-sm-8" style="text-align:center;">
                 <hr class="margin1">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2>How To Find Us</h2>
-                        <div class="padding5">
-                            <p>
-                                Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio.
-                            </p>
-                            <p>
-                                Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orc sem. Duis ultricies pharetra magna. Donec accumsan malesu.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <h2>Contact Form</h2>
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                              <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                              <ul>
-                                @foreach ($errors->all() as $error)
-                                  <li>{{ $error }}</li>
-                                @endforeach
-                              </ul>
-                            </div>
-                          @endif
-                        {!! Form::open(array('id' => 'form1')) !!}
-                            <div class="success" style="display: none;"> Contact form submitted! We will be in touch soon.</div>
-                            <fieldset>
-                                <label class="name">
-                                    {!! Form::text('name', null, array('placeholder' => 'Nombre completo:')) !!}
-                                </label>
-                                <label class="email labelMargin">
-                                    {!! Form::email('email', null, array('placeholder' => 'E-mail:')) !!}
-                                </label>
-                                <label class="phone labelMargin">
-                                    {!! Form::tel('phone', null, array('placeholder' => 'Teléfono:')) !!}
-                                </label>
-                                <label class="message">
-                                    {!! Form::textarea('body', null, ['placeholder' => 'Mensaje:']) !!}
-                                </label>
-                                <br>
-                                <div>
-                                    {!! Captcha::img() !!}
-                                </div>
-                                <br>
-                                <label style="margin-right:20px;">
-                                    {!! Form::text('captcha',null,array('class' => 'form-control','placeholder' => 'Verificación Anti-Spam')) !!}
-                                </label>
-                                <button type="submit" class="btn btn-success btn-lg">
-                                    <span class="glyphicon glyphicon-envelope"></span> Enviar
-                                </button>
-                            </fieldset>
-                        {!! Form::close() !!}
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <figure class="g_map">
-                    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Dr.%20Manuel%20Nava%20%23%208%2C%20Zona%20Universitaria%20poniente%2C%20C.P.%2078290%2C%20San%20Luis%20Potos%C3%AD%2C%20S.L.P%2C%20M%C3%A9xico&key=AIzaSyDtoXbvnzu2iTYSJxGkJkuXFL1L0Cs9EVQ" allowfullscreen>
-                    </iframe>
-                </figure>
+                <br>
+				        <h1 id="subtitulo" style="text-transformation:none !important; font-family:raleway; font-weght:bold;">
+                  Gracias por contactarnos, pronto nos comunicaremos para resolver tus dudas.
+                </h1>
+                <br>
+                <p>
+                    <a href="registro" class="btn btn-default btn-link" style="font-size:20px;">Quiero registrarme<span></span></a>
+                </p>
+                <br>
+                <hr class="margin1">
             </div>
         </div>
     </div>

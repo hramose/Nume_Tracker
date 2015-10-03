@@ -17,6 +17,7 @@ Route::get('que-es-nume','HomeController@description');
 Route::get('nutricion','HomeController@nutrition');
 Route::get('blog','HomeController@blog');
 Route::get('contacto','HomeController@contact');
+Route::post('contacto','HomeController@sendContactMessage');
 
 /* Registro, autenticación y recuperación de contraseña */
 
