@@ -11,6 +11,7 @@
   #home:hover{ opacity:1; }
   #nav-collapse-h{ background-color: #303030; }
   #larr{ margin-left: 10px; }
+  #user{ background-color: #303030; }
 
   @media screen and (max-width: 767px) {
       .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
@@ -39,7 +40,7 @@
           @if(Auth::guest())
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/"><img src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
-            <li><a href="#" style="font-weight:bolder;">Iniciar sesión</a></li>
+            <li><a href="iniciar-sesion" style="font-weight:bolder;">Iniciar sesión</a></li>
             <li><a href="registro">Registrarte</a></li>
             <!--<li>
               <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse-h" aria-expanded="false" aria-controls="nav-collapse-h" id="togglebtn">Toggle test <i class=""></i> </a>
@@ -48,8 +49,12 @@
           @else
           <ul class="nav navbar-nav nav-collapse collapse in" role="search" id="nav-collapse-h" aria-expanded="true">
             <li class="dropdown" id="user">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-bottom:9px; padding-top:11px;">
-                <img class="img-circle" src="assets/images/base/no-photo.png" alt="" width="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #303030;padding-bottom:9px; padding-top:11px;">
+                @if(Auth::user()->photo=='')
+                <img class="img-circle" src="assets/images/base/no-photo.png" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
+                @else
+                <img class="img-circle" src="{{ 'storage/'.Auth::user()->photo }}" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
+                @endif
               </a>
               <ul class="dropdown-menu" role="menu">
                 <!--<li><a href="#">My profile</a></li>-->

@@ -65,7 +65,8 @@ class AuthController extends Controller
             'city' => 'max:50',
             'state' => 'max:50',
             'country' => 'max:50',
-            ]);
+            'captcha' => 'required|captcha'
+            ],['captcha' => 'Captcha is incorrect.']);
         }
         else{
             $validator = Validator::make($data,[
@@ -89,8 +90,9 @@ class AuthController extends Controller
             'country' => 'required|max:50',
             'office_phone' => 'required',
             'initial_hour' => 'string',
-            'final_hour' => 'string'
-            ]);
+            'final_hour' => 'string',
+            'captcha' => 'required|captcha'
+            ],['captcha' => 'Captcha is incorrect.']);
         }
 
         return $validator;
@@ -122,6 +124,14 @@ class AuthController extends Controller
             'state' => $data['state'],
             'country' => $data['country']
         ]);
+
+        if($user && is_object($data['photo'])){
+            $photo = $data['photo'];
+            $name = str_replace('.','_'.$user->id.'.',$photo->getClientOriginalName());
+            \Storage::disk('local')->put($name,  \File::get($photo));
+            $user->photo = $name;
+            $user->save();
+        }
         
         if($data['role'] == 'nutritionist'){
             $nutritionist = Nutritionist_file::create([

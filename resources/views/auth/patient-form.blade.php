@@ -1,4 +1,4 @@
-{!! Form::open(array('method' => 'post','class' => 'form-horizontal')) !!}
+{!! Form::open(array('method' => 'post','class' => 'form-horizontal','enctype' => 'multipart/form-data')) !!}
 	{!! Form::hidden('role', 'patient') !!}
 	<br>
 	<h3 id="subtitulo">Cuenta</h3>
@@ -115,10 +115,24 @@
 	</div>
 	<br>
 	<div class="form-group">
+		{!! Form::label(null,null,array('class' => 'col-sm-2 control-label')) !!}
+		<div class="col-sm-4">
+			{!! Captcha::img() !!}
+		</div>
+	</div>
+	<div class="form-group">
+		{!! Form::label(null,'Captcha *',array('class' => 'col-sm-2 control-label')) !!}
+		<div class="col-sm-4">
+			{!! Form::text('captcha',null,array('class' => 'form-control','placeholder' => 'Verificación Anti-Spam')) !!}
+		</div>
+	</div>
+	<br>
+	<div class="form-group">
 		<label class="col-sm-2 control-label" for="formGroup"></label>
 		<div class="col-sm-4">
 			<button type="submit" class="btn btn-success btn-lg">
 				<span class="glyphicon glyphicon-floppy-saved"></span> Crear cuenta
 			</button>
 		</div>
-	</div>{!! Form::close() !!}
+	</div>
+{!! Form::close() !!}

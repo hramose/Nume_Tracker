@@ -115,32 +115,29 @@
                             <fieldset>
                                 <label class="name">
                                     {!! Form::text(null, null, array('placeholder' => 'Name:')) !!}
-                                    <span class="error" style="display: none;">*This is not a valid name.</span>
-                                    <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <label class="email labelMargin">
                                     {!! Form::email(null, null, array('placeholder' => 'Email:')) !!}
-                                    <span class="error" style="display: none;">*This is not a valid email address.</span>
-                                    <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <label class="phone labelMargin">
                                     {!! Form::tel(null, null, array('placeholder' => 'Phone:')) !!}
-                                    <span class="error" style="display: none;">*This is not a valid phone number.</span>
-                                    <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
                                 <label class="message">
                                     {!! Form::textarea(null, null, ['placeholder' => 'Message:']) !!}
-                                    <span class="error" style="display: none;">*The message is too short.</span>
-                                    <span class="empty" style="display: none;">*This field is required.</span>
                                 </label>
-                                <div class="clearfix"></div>
-                                <div class="btns">
+                                <br>
+                                <div>
+                                    {!! Captcha::img() !!}
+                                </div>
+                                <br>
+                                <label>
+                                    {!! Form::text('captcha',null,array('class' => 'form-control','placeholder' => 'Verificación Anti-Spam')) !!}
+                                </label>
+                                <br>
+                                <div class="btns" style="top:40px;left:-240px;">
                                     <p>
-                                        <a href="#" class="btn btn-link" data-type="submit">
-                                            submit<span></span>
-                                        </a>
-                                        <a href="#" class="btn btn-link" data-type="reset">
-                                            clear<span></span>
+                                        <a href="#" class="btn btn-link" data-type="submit" style="font-size:25px;">
+                                            enviar<span></span>
                                         </a>
                                     </p>
                                 </div>

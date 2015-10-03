@@ -183,6 +183,20 @@
 	</div>
 	<br>
 	<div class="form-group">
+		{!! Form::label(null,null,array('class' => 'col-sm-2 control-label')) !!}
+		<div class="col-sm-4">
+			{!! Captcha::img() !!}
+		</div>
+	</div>
+	<div class="form-group">
+		{!! Form::label(null,'Captcha *',array('class' => 'col-sm-2 control-label')) !!}
+		<div class="col-sm-4">
+			{!! Form::text('captcha',null,array('class' => 'form-control','placeholder' => 'Verificación Anti-Spam')) !!}
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="form-group">
 		<label class="col-sm-2 control-label" for="formGroup"></label>
 		<div class="col-sm-4">
 			<button type="submit" class="btn btn-success btn-lg">

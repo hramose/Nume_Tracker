@@ -146,7 +146,8 @@ return [
         /*
          * Custom Service Providers ... JLAZ
          */
-        Collective\Html\HtmlServiceProvider::class
+        Collective\Html\HtmlServiceProvider::class,
+        'Mews\Captcha\CaptchaServiceProvider',
     ],
 
     /*
@@ -199,7 +200,8 @@ return [
          * Custom Aliases... JLAZ
          */
         'Form' => 'Collective\Html\FormFacade',
-        'Html' => 'Collective\Html\HtmlFacade'
+        'Html' => 'Collective\Html\HtmlFacade',
+        'Captcha' => 'Mews\Captcha\Facades\Captcha'
     ],
 
 ];
