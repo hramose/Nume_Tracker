@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nutritionist_file extends Model
+class NutritionistFile extends Model
 {
     /**
      * The database table used by the model.
@@ -28,8 +28,7 @@ class Nutritionist_file extends Model
      */
     protected $hidden = ['created_at', 'updated_at'];
 
-
-    public function user()
+    public function nutritionist()
     {
         return $this->belongsTo('App\User');
     }

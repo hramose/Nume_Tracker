@@ -32,10 +32,9 @@ class CreateNutritionistsFilesTable extends Migration
             $table->boolean('sun');
             $table->time('initial_hour');
             $table->time('final_hour');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-            $table->timestamps();
         });
     }
 

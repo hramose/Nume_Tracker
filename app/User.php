@@ -38,9 +38,18 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
-
-    public function nutritionist_file()
+    public function nutritionistFile()
     {
         return $this->hasOne('App\Nutritionist_file');
+    }
+
+    public function meetings()
+    {
+        return $this->hasMany('App\Meetings');
+    }
+
+    public function nutritionistMeetings()
+    {
+        return $this->hasMany('App\Meetings','nutritionist_id');
     }
 }
