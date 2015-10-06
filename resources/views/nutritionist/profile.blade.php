@@ -168,12 +168,6 @@
                                 </ul>
                             </div>
                             @endif
-                            @if( $success == true)
-                            <div class="alert alert-success" role="alert">
-                                <span class="glyphicon glyphicon-ok"></span>
-                                &nbsp;&nbsp;Tus datos se han guerdado satisfactoriamente.
-                            </div>
-                            @endif
                             <div class="tab-pane active" id="tab_default_1">
                                 @include('patient.form')
                             </div>

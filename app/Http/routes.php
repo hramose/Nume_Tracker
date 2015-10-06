@@ -30,6 +30,15 @@ Route::get('cerrar-sesion', 'Auth\AuthController@getLogout');
 Route::get('registro', 'Auth\AuthController@getRegister');
 Route::post('registro', 'Auth\AuthController@postRegister');
 
+//Direccionamiento segun rol
+
+Route::get('perfil','UserController@profile');
+
+// Paciente
+
+Route::post('perfil','PatientController@saveProfile');
+
+
 /*
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
@@ -39,4 +48,4 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');*/
 
-Route::get('perfil',function(){ return view('patient.profile'); });
+

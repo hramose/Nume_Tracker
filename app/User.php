@@ -40,12 +40,12 @@ class User extends Model implements AuthenticatableContract,
 
     public function nutritionistFile()
     {
-        return $this->hasOne('App\Nutritionist_file');
+        return $this->hasOne('App\NutritionistFile');
     }
 
     public function meetings()
     {
-        return $this->hasMany('App\Meetings');
+        return $this->hasMany('App\Meeting');
     }
 
     public function nutritionistMeetings()

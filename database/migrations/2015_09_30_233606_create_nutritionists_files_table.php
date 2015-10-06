@@ -17,7 +17,7 @@ class CreateNutritionistsFilesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('reviews')->default(0);
             $table->integer('score')->default(0);
-            $table->decimal('ranking',1,1)->default(0.0);
+            $table->decimal('ranking',2,1)->default(0.0);
             $table->string('grade');
             $table->string('license');
             $table->string('speciality');

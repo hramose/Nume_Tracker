@@ -16,7 +16,8 @@
   @media screen and (max-width: 767px) {
       .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
       .nav-collapse>li { float: none; }
-      #navbar-collapse-x{ height: 203px; }
+      #navbar-collapse-x{ border:0px; height: 300px; }
+      #nav-collapse-h{ margin:0px; height: 300px; }
       #user{ text-align: left; }
   }
 </style>
@@ -56,11 +57,30 @@
                 <img class="img-circle" src="{{ 'storage/'.Auth::user()->photo }}" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
                 @endif
               </a>
+              @if(Auth::user()->role == 'patient')
               <ul class="dropdown-menu" role="menu">
-                <!--<li><a href="#">My profile</a></li>-->
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Historia Clínica</a></li>
+                <li><a href="#">Agendar cita</a></li>
+                <li><a href="#">Seguimiento</a></li>
+                <li><a href="#">Historial</a></li>
                 <li class="divider"></li>
                 <li><a href="cerrar-sesion">Cerrar sesión</a></li>
               </ul>
+              @elseif(Auth::user()->role == 'nutritionist')
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Citas</a></li>
+                <li class="divider"></li>
+                <li><a href="cerrar-sesion">Cerrar sesión</a></li>
+              </ul>
+              @elseif(Auth::user()->role == 'admin')
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Panel de administración</a></li>
+                <li class="divider"></li>
+                <li><a href="cerrar-sesion">Cerrar sesión</a></li>
+              </ul>
+              @endif
             </li>
             <li><a href="/"><img src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
           </ul>

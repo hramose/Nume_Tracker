@@ -28,7 +28,7 @@ class NutritionistFile extends Model
      */
     protected $hidden = ['created_at', 'updated_at'];
 
-    public function nutritionist()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }
