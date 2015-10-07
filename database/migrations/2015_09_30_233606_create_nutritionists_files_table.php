@@ -29,7 +29,6 @@ class CreateNutritionistsFilesTable extends Migration
             $table->boolean('thu');
             $table->boolean('fri');
             $table->boolean('sat');
-            $table->boolean('sun');
             $table->time('initial_hour');
             $table->time('final_hour');
             $table->timestamps();

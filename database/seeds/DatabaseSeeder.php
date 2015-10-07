@@ -15,8 +15,16 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         factory(App\User::class)->create($this->mySuperUser());
-        factory(App\User::class)->create($this->myUser());
-        factory(App\User::class,'patient',10)->create();
+        $myUser = factory(App\User::class)->create($this->myUser());
+
+        App\CNHistory::create(['user_id' => $myUser->id]);
+
+        factory(App\User::class,'patient',10)->create()->each(
+            function($u){
+                $u->cnHistory()->save(factory(App\CNHistory::class)->make());
+            }
+        );
+
         factory(App\User::class,'nutritionist',50)->create()->each(
             function($u){
                 $u->nutritionistFile()->save(factory(App\NutritionistFile::class)->make());

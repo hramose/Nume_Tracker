@@ -36,7 +36,15 @@ Route::get('perfil','UserController@profile');
 
 // Paciente
 
-Route::post('perfil','PatientController@saveProfile');
+Route::get('perfil-paciente','PatientController@showProfile');
+Route::post('perfil-paciente','PatientController@saveProfile');
+Route::get('historia-clinica','PatientController@showHcn');
+Route::post('historia-clinica','PatientController@saveHcn');
+
+//Nutriólogo
+
+Route::get('perfil-nutriologo','NutritionistController@showProfile');
+Route::post('perfil-nutriologo','NutritionistController@saveProfile');
 
 
 /*

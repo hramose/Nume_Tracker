@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\NutritionistFile;
+use App\CNHistory;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -88,7 +89,7 @@ class AuthController extends Controller
             'city' => 'required|max:50',
             'state' => 'required|max:50',
             'country' => 'required|max:50',
-            'office_phone' => 'required',
+            'office_phone' => 'numeric|required',
             'initial_hour' => 'string',
             'final_hour' => 'string',
             'captcha' => 'required|captcha'
@@ -132,8 +133,11 @@ class AuthController extends Controller
             $user->photo = $name;
             $user->save();
         }
-        
-        if($data['role'] == 'nutritionist'){
+
+        if($data['role'] == 'patient'){
+            CNHistory::create(['user_id' => $user->id]);
+        }
+        elseif($data['role'] == 'nutritionist'){
             $nutritionist = Nutritionist_file::create([
                 'user_id' => $user->id,
                 'grade' => $data['grade'],
@@ -147,7 +151,6 @@ class AuthController extends Controller
                 'thu' => array_key_exists('Thu', $data),
                 'fri' => array_key_exists('Fri', $data),
                 'sat' => array_key_exists('Sat', $data),
-                'sun' => array_key_exists('Sun', $data),
                 'initial_hour' => $data['initial_hour'],
                 'final_hour' => $data['initial_hour']
             ]);

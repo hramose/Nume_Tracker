@@ -43,6 +43,11 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasOne('App\NutritionistFile');
     }
 
+    public function cnHistory()
+    {
+        return $this->hasOne('App\CNHistory');
+    }
+
     public function meetings()
     {
         return $this->hasMany('App\Meeting');

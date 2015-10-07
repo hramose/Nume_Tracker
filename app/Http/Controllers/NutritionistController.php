@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-
-class PatientController extends Controller
+class NutritionistController extends Controller
 {
-
     public function showProfile()
     {
-        return view('patient.profile');
+        return view('nutritionist.profile');
     }
 
 	protected function validator(array $data)
@@ -26,13 +24,18 @@ class PatientController extends Controller
             'birthday' => 'required|date',
             'gender' => 'required',
             'phone' => 'numeric',
-            'street' => 'max:50',
-            'number' => 'numeric',
-            'neighborhood' => 'max:50',
-            'zip_code' => 'numeric',
-            'city' => 'max:50',
-            'state' => 'max:50',
-            'country' => 'max:50',
+            'grade' => 'required',
+            'license' => 'required|alpha_num',
+            'street' => 'required|max:50',
+            'number' => 'required|numeric',
+            'neighborhood' => 'required|max:50',
+            'zip_code' => 'required|numeric',
+            'city' => 'required|max:50',
+            'state' => 'required|max:50',
+            'country' => 'required|max:50',
+            'office_phone' => 'numeric|required',
+            'initial_hour' => 'string',
+            'final_hour' => 'string',
         ]);
     }
 
@@ -68,11 +71,23 @@ class PatientController extends Controller
         $user->country = $data['country'];
         $user->save();
 
-        return \Redirect::to('perfil');
-    }
+        $nutritionistFile = $user->nutritionistFile;
+        $nutritionistFile->user_id = $user->id;
+        $nutritionistFile->grade = $data['grade'];
+        $nutritionistFile->license = $data['license'];
+        $nutritionistFile->speciality = $data['speciality'];
+        $nutritionistFile->about_me = $data['about_me'];
+        $nutritionistFile->office_phone = $data['office_phone'];
+        $nutritionistFile->mon = array_key_exists('Mon', $data);
+        $nutritionistFile->tue = array_key_exists('Tue', $data);
+        $nutritionistFile->wed = array_key_exists('Wed', $data);
+        $nutritionistFile->thu = array_key_exists('Thu', $data);
+        $nutritionistFile->fri = array_key_exists('Fri', $data);
+        $nutritionistFile->sat = array_key_exists('Sat', $data);
+        $nutritionistFile->initial_hour = $data['initial_hour'];
+        $nutritionistFile->final_hour = $data['initial_hour'];
+        $nutritionistFile->save();
 
-    public function showHcn()
-    {
-        return view('patient.hcn');
+        return \Redirect::to('perfil');
     }
 }

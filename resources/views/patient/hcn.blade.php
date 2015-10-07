@@ -94,15 +94,33 @@
                 <div class="navbar-inner container">
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
-                            <li class="active">
+                            <li>
                                 <a href="perfil">
                                     <span>Perfil</span>
                                 </a>
                                 <strong></strong>
                             </li>
+                            <li class="active">
+                                <a href="historia-clinica">
+                                    <span>HCN</span>
+                                </a>
+                                <strong></strong>
+                            </li>
                             <li>
-                                <a href="citas">
-                                    <span>Citas</span>
+                                <a href="agendar-cita">
+                                    <span>Agendar cita</span>
+                                </a>
+                                <strong></strong>
+                            </li>
+                            <li>
+                                <a href="seguimiento">
+                                    <span>Seguimiento</span>
+                                </a>
+                                <strong></strong>
+                            </li>
+                            <li>
+                                <a href="historial">
+                                    <span>Historial</span>
                                 </a>
                                 <strong></strong>
                             </li>
@@ -128,14 +146,14 @@
 <div id="content">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <hr class="margin1">
+            <hr class="margin1">
+            <div class="col-sm-offset-1 col-sm-10">
                 <div class="tabbable-panel">
                     <div class="tabbable-line">
                         <ul class="nav nav-tabs ">
                             <li class="active">
                                 <a href="#tab_default_1" data-toggle="tab">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;Mi Perfil&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Historia Clínica - Nutriológica (Cuestionario)&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </li>
                         </ul>
@@ -151,7 +169,7 @@
                             </div>
                             @endif
                             <div class="tab-pane active" id="tab_default_1">
-                                @include('nutritionist.form')
+                                @include('patient.hcn-form')
                             </div>
                         </div>
                     </div>

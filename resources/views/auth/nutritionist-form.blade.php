@@ -1,4 +1,4 @@
-{!! Form::open(array('method' => 'post','class' => 'form-horizontal')) !!}
+{!! Form::open(array('method' => 'post','class' => 'form-horizontal','enctype' => 'multipart/form-data')) !!}
 	{!! Form::hidden('role', 'nutritionist') !!}
 	<br>
 	<h3 id="subtitulo">Cuenta</h3>
@@ -166,9 +166,6 @@
 			</label>
 			<label class="checkbox-inline">
 				{!! Form::checkbox('Sat','Sat', false) !!}S
-			</label>
-			<label class="checkbox-inline">
-				{!! Form::checkbox('Sun','Sun', false) !!}D
 			</label>
 		</div>
 	</div>

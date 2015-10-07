@@ -59,7 +59,7 @@
               </a>
               @if(Auth::user()->role == 'patient')
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Perfil</a></li>
+                <li><a href="perfil">Perfil</a></li>
                 <li><a href="#">Historia Clínica</a></li>
                 <li><a href="#">Agendar cita</a></li>
                 <li><a href="#">Seguimiento</a></li>
@@ -69,7 +69,7 @@
               </ul>
               @elseif(Auth::user()->role == 'nutritionist')
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Perfil</a></li>
+                <li><a href="perfil">Perfil</a></li>
                 <li><a href="#">Citas</a></li>
                 <li class="divider"></li>
                 <li><a href="cerrar-sesion">Cerrar sesión</a></li>

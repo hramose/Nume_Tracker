@@ -15,13 +15,13 @@ class UserController extends Controller
     	{
     		switch (\Auth::user()->role) {
     			case 'patient':
-    				return view('patient.profile')->with(['success' => false]);
+                    return \Redirect::to('perfil-paciente');
     			break;
     			case 'nutritionist':
-    				return 'aqui va la vista de perfil de nutriologo';
+    				return \Redirect::to('perfil-nutriologo');
     			break;
     			case 'admin':
-    				return 'perfil admin?';
+    				return \Redirect::to('/');
     			break;
     		}
     	}

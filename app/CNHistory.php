@@ -4,22 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NutritionistFile extends Model
+class CNHistory extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'nutritionists_files';
+    protected $table = 'cnhistories';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['user_id','reviews','score','ranking','grade','license','speciality','about_me',
-                           'office_phone','mon','tue','wed','thu','fri','sat','initial_hour','final_hour'];
+    protected $fillable = ['user_id','ms','oc','sc','re','sd','hm','dt','sw','or','ud','wd','ap1','ap2','ap3','ap4','ap5',
+                           'ap6','ap7','ap8','te','dd','im','usd','whd','swu','sur','obe','can','dia','ahi','hip','hep',
+                           'fia','ext','fre','dur','wst','smo','dal','dco'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,5 +33,4 @@ class NutritionistFile extends Model
     {
         return $this->belongsTo('App\User');
     }
-
 }

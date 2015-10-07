@@ -26,7 +26,6 @@
 	<h3 id="subtitulo">Perfil</h3>
 	<br>-->
 	<div class="form-group">
-
 		<label class="col-sm-2 control-label" for="formGroup">
 			@if(Auth::user()->photo == '')
 			<img src="assets/images/base/no-photo.png" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
