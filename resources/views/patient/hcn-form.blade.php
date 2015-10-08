@@ -1,5 +1,4 @@
 {!! Form::open(array('method' => 'post','class' => 'form-horizontal','enctype' => 'multipart/form-data')) !!}
-	{!! Form::hidden('role', 'nutritionist') !!}
 	<br>
 	<h3 id="subtitulo">Datos personales</h3>
 	<br>
@@ -73,69 +72,69 @@
 		{!! Form::label(null,'Problemas actuales',array('class' => 'col-sm-3 control-label')) !!}
 		<div class="col-sm-9" id="semana">
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap1','ap1', false) !!}Estreñimiento
+				{!! Form::checkbox('ap1','ap1', Auth::user()->cnHistory->ap1) !!}Estreñimiento
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap2','ap2', false) !!}Gastritis
+				{!! Form::checkbox('ap2','ap2', Auth::user()->cnHistory->ap2) !!}Gastritis
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap3','ap3', false) !!}Coilitis
+				{!! Form::checkbox('ap3','ap3', Auth::user()->cnHistory->ap3) !!}Coilitis
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap4','ap4', false) !!}Pirosis
+				{!! Form::checkbox('ap4','ap4', Auth::user()->cnHistory->ap4) !!}Pirosis
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap5','ap5', false) !!}Nauseas
+				{!! Form::checkbox('ap5','ap5', Auth::user()->cnHistory->ap5) !!}Nauseas
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap6','ap6', false) !!}Diarrea
+				{!! Form::checkbox('ap6','ap6', Auth::user()->cnHistory->ap6) !!}Diarrea
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap7','ap7', false) !!}Vómito
+				{!! Form::checkbox('ap7','ap7', Auth::user()->cnHistory->ap7) !!}Vómito
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ap8','ap8', false) !!}Úlcera
+				{!! Form::checkbox('ap8','ap8', Auth::user()->cnHistory->ap8) !!}Úlcera
 			</label>
 		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label(null,'Dentadura',array('class' => 'col-sm-3 control-label')) !!}
-		<div class="col-sm-7">
+		<div class="col-sm-9">
 			{!! Form::text('te',Auth::user()->cnHistory->te,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label(null,'¿Padece alguna enfermedad diagnosticada?',array('class' => 'col-sm-3 control-label')) !!}
+		{!! Form::label(null,'¿Padece alguna enfermedad diagnosticada?',array('class' => 'col-sm-5 control-label')) !!}
 		<div class="col-sm-7">
 			{!! Form::text('dd',Auth::user()->cnHistory->dd,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label(null,'¿Ha padecido alguna enfermedad importante?',array('class' => 'col-sm-3 control-label')) !!}
+		{!! Form::label(null,'¿Ha padecido alguna enfermedad importante?',array('class' => 'col-sm-5 control-label')) !!}
 		<div class="col-sm-7">
 			{!! Form::text('im',Auth::user()->cnHistory->im,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label(null,'Actualmente, ¿Toma algún medicamento?',array('class' => 'col-sm-3 control-label')) !!}
+		{!! Form::label(null,'Actualmente, ¿Toma algún medicamento?',array('class' => 'col-sm-5 control-label')) !!}
 		<div class="col-sm-7">
 			{!! Form::text('usd',Auth::user()->cnHistory->usd,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label(null,'¿Cuál y qué dosis?',array('class' => 'col-sm-3 control-label')) !!}
+		{!! Form::label(null,'¿Cuál y qué dosis?',array('class' => 'col-sm-5 control-label')) !!}
 		<div class="col-sm-7">
 			{!! Form::text('whd',Auth::user()->cnHistory->whd,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label(null,'¿Desde cuándo toma el medicamento?',array('class' => 'col-sm-3 control-label')) !!}
+		{!! Form::label(null,'¿Desde cuándo toma el medicamento?',array('class' => 'col-sm-5 control-label')) !!}
 		<div class="col-sm-7">
 			{!! Form::text('swu',Auth::user()->cnHistory->swu,array('class' => 'form-control')) !!}
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label(null,'¿Le han practicado alguna cirugía?',array('class' => 'col-sm-3 control-label')) !!}
+		{!! Form::label(null,'¿Le han practicado alguna cirugía?',array('class' => 'col-sm-5 control-label')) !!}
 		<div class="col-sm-7">
 			{!! Form::text('sur',Auth::user()->cnHistory->sur,array('class' => 'form-control')) !!}
 		</div>
@@ -147,22 +146,22 @@
 		{!! Form::label(null,'Familiares con algún problema cómo',array('class' => 'col-sm-4 control-label')) !!}
 		<div class="col-sm-8" id="semana">
 			<label class="checkbox-inline">
-				{!! Form::checkbox('obe','obe', false) !!}Obesidad
+				{!! Form::checkbox('obe','obe', Auth::user()->cnHistory->obe) !!}Obesidad
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('can','can', false) !!}Cáncer
+				{!! Form::checkbox('can','can', Auth::user()->cnHistory->can) !!}Cáncer
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('dia','dia', false) !!}Diabetes
+				{!! Form::checkbox('dia','dia', Auth::user()->cnHistory->dia) !!}Diabetes
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('ahi','ahi', false) !!}HTA
+				{!! Form::checkbox('ahi','ahi', Auth::user()->cnHistory->ahi) !!}HTA
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('hip','hip', false) !!}Hipercolesterolemia
+				{!! Form::checkbox('hip','hip', Auth::user()->cnHistory->hip) !!}Hipercolesterolemia
 			</label>
 			<label class="checkbox-inline">
-				{!! Form::checkbox('hep','hep', false) !!}HTGL
+				{!! Form::checkbox('hep','hep', Auth::user()->cnHistory->hep) !!}HTGL
 			</label>
 		</div>
 	</div>
@@ -172,19 +171,19 @@
 	<div class="form-group">
 		{!! Form::label(null,'¿Realiza actividad física?',array('class' => 'col-sm-3 control-label')) !!}
 		<div class="col-sm-4">
-			@if(Auth::user()->cnHistory->fia == 'yes')
+			@if(Auth::user()->cnHistory->fia == 'Sí')
 			<label class="radio-inline">
-				{!! Form::radio('fia', 'yes',true,['class' => 'field','style' => 'top:-4px;']) !!}Si
+				{!! Form::radio('fia', 'Sí',true,['class' => 'field','style' => 'top:-4px;']) !!}Sí
 			</label>
 			<label class="radio-inline">
-				{!! Form::radio('fia', 'no',false,['class' => 'field','style' => 'top:-4px;']) !!}No
+				{!! Form::radio('fia', 'No',false,['class' => 'field','style' => 'top:-4px;']) !!}No
 			</label>
 			@else
 			<label class="radio-inline">
-				{!! Form::radio('fia', 'yes',false,['class' => 'field','style' => 'top:-4px;']) !!}Sí
+				{!! Form::radio('fia', 'Sí',false,['class' => 'field','style' => 'top:-4px;']) !!}Sí
 			</label>
 			<label class="radio-inline">
-				{!! Form::radio('fia', 'no',true,['class' => 'field','style' => 'top:-4px;']) !!}No
+				{!! Form::radio('fia', 'No',true,['class' => 'field','style' => 'top:-4px;']) !!}No
 			</label>
 			@endif
 		</div>

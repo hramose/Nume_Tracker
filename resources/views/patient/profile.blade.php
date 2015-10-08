@@ -146,8 +146,8 @@
 <div id="content">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <hr class="margin1">
+            <hr class="margin1">
+            <div class="col-sm-offset-1 col-sm-10">
                 <div class="tabbable-panel">
                     <div class="tabbable-line">
                         <ul class="nav nav-tabs ">
@@ -168,6 +168,12 @@
                                 </ul>
                             </div>
                             @endif
+                            @if(session('success'))
+                            <div class="alert alert-success">
+                              <span class="glyphicon glyphicon-ok"></span>
+                              &nbsp;&nbsp;&nbsp;{{ session('success') }}
+                            </div>
+                            @endif
                             <div class="tab-pane active" id="tab_default_1">
                                 @include('patient.form')
                             </div>
@@ -175,6 +181,7 @@
                     </div>
                 </div>
             </div>
+            <hr class="margin1">
         </div>
     </div>
 </div>

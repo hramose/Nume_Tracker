@@ -11,7 +11,6 @@ use App\Http\Controllers\Controller;
 
 class PatientController extends Controller
 {
-
     public function showProfile()
     {
         return view('patient.profile');
@@ -68,11 +67,62 @@ class PatientController extends Controller
         $user->country = $data['country'];
         $user->save();
 
-        return \Redirect::to('perfil');
+        return redirect('perfil-paciente')->with('success','Se han guardado los cambios con êxito.');
     }
 
     public function showHcn()
     {
         return view('patient.hcn');
+    }
+
+    public function saveHcn(Request $request)
+    {
+        $data = $request->all();
+        $user = User::find(\Auth::user()->id);
+        $cnh = $user->cnHistory;
+
+        $cnh->ms = $data['ms'];
+        $cnh->oc = $data['oc'];
+        $cnh->sc = $data['sc'];
+        $cnh->re = $data['re'];
+        $cnh->sd = $data['sd'];
+        $cnh->hm = $data['hm'];
+        $cnh->dt = $data['dt'];
+        $cnh->sw = $data['sw'];
+        $cnh->or = $data['or'];
+        $cnh->ud = $data['ud'];
+        $cnh->wd = $data['wd'];
+        $cnh->ap1 = array_key_exists('ap1', $data);
+        $cnh->ap2 = array_key_exists('ap2', $data);
+        $cnh->ap3 = array_key_exists('ap3', $data);
+        $cnh->ap4 = array_key_exists('ap4', $data);
+        $cnh->ap5 = array_key_exists('ap5', $data);
+        $cnh->ap6 = array_key_exists('ap6', $data);
+        $cnh->ap7 = array_key_exists('ap7', $data);
+        $cnh->ap8 = array_key_exists('ap8', $data);
+        $cnh->te = $data['te'];
+        $cnh->dd = $data['dd'];
+        $cnh->im = $data['im'];
+        $cnh->usd = $data['usd'];
+        $cnh->whd = $data['whd'];
+        $cnh->swu = $data['swu'];
+        $cnh->sur = $data['sur'];
+        $cnh->obe = array_key_exists('obe', $data);
+        $cnh->can = array_key_exists('can', $data);
+        $cnh->dia = array_key_exists('dia', $data);
+        $cnh->ahi = array_key_exists('ahi', $data);
+        $cnh->hip = array_key_exists('hip', $data);
+        $cnh->hep = array_key_exists('hep', $data);
+        $cnh->fia = $data['fia'];
+        $cnh->ext = $data['ext'];
+        $cnh->fre = $data['fre'];
+        $cnh->dur = $data['dur'];
+        $cnh->wst = $data['wst'];
+        $cnh->smo = $data['smo'];
+        $cnh->dal = $data['dal'];
+        $cnh->dco = $data['dco'];
+        $cnh->save();
+
+        return redirect('historia-clinica')->with('success','Se han guardado los cambios con êxito.');
     }
 }

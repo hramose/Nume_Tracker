@@ -9,23 +9,23 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function profile()
     {
-    	if(!\Auth::guest())
-    	{
-    		switch (\Auth::user()->role) {
-    			case 'patient':
-                    return \Redirect::to('perfil-paciente');
-    			break;
-    			case 'nutritionist':
-    				return \Redirect::to('perfil-nutriologo');
-    			break;
-    			case 'admin':
-    				return \Redirect::to('/');
-    			break;
-    		}
-    	}
-
-    	return redirect('/');
+		switch (\Auth::user()->role) {
+			case 'patient':
+                return redirect('perfil-paciente');
+			break;
+			case 'nutritionist':
+				return redirect('perfil-nutriologo');
+			break;
+			default:
+				return redirect('/');
+			break;
+		}
     }
 }

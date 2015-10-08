@@ -88,6 +88,13 @@ class NutritionistController extends Controller
         $nutritionistFile->final_hour = $data['initial_hour'];
         $nutritionistFile->save();
 
-        return \Redirect::to('perfil');
+        return redirect('perfil-nutriologo')->with('success','Se han guardado los cambios con êxito.');
+    }
+
+    public function showDirectory()
+    {
+        $users = User::where('role', '=', 'nutritionist')->paginate(5);
+
+        return view('patient.nutritionist-list',compact('users'));
     }
 }

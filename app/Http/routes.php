@@ -19,8 +19,6 @@ Route::get('blog','HomeController@blog');
 Route::get('contacto','HomeController@contact');
 Route::post('contacto','HomeController@sendContactMessage');
 
-/* Registro, autenticación y recuperación de contraseña */
-
 // Authentication routes...
 Route::get('iniciar-sesion', 'Auth\AuthController@getLogin');
 Route::post('iniciar-sesion', 'Auth\AuthController@postLogin');
@@ -36,15 +34,20 @@ Route::get('perfil','UserController@profile');
 
 // Paciente
 
-Route::get('perfil-paciente','PatientController@showProfile');
-Route::post('perfil-paciente','PatientController@saveProfile');
-Route::get('historia-clinica','PatientController@showHcn');
-Route::post('historia-clinica','PatientController@saveHcn');
+Route::group(['middleware' => ['auth','is_patient']],function(){
+	Route::get('perfil-paciente','PatientController@showProfile');
+	Route::post('perfil-paciente','PatientController@saveProfile');
+	Route::get('historia-clinica','PatientController@showHcn');
+	Route::post('historia-clinica','PatientController@saveHcn');
+	Route::get('agendar-cita','NutritionistController@showDirectory');
+});
 
 //Nutriólogo
 
-Route::get('perfil-nutriologo','NutritionistController@showProfile');
-Route::post('perfil-nutriologo','NutritionistController@saveProfile');
+Route::group(['middleware' => ['auth','is_nutritionist']],function(){
+	Route::get('perfil-nutriologo','NutritionistController@showProfile');
+	Route::post('perfil-nutriologo','NutritionistController@saveProfile');
+});
 
 
 /*

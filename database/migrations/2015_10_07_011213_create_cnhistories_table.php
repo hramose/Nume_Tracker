@@ -52,7 +52,7 @@ class CreateCnhistoriesTable extends Migration
             $table->boolean('hip')->nullable();
             $table->boolean('hep')->nullable();
             //Actividades
-            $table->boolean('fia')->nullable();
+            $table->string('fia')->nullable();
             $table->string('ext')->nullable();
             $table->string('fre')->nullable();
             $table->string('dur')->nullable();

@@ -71,7 +71,7 @@ $factory->define(App\CNHistory::class, function (Faker\Generator $faker) {
         'ahi' => $faker->boolean,
         'hip' => $faker->boolean,
         'hep' => $faker->boolean,
-        'fia' => $faker->boolean,
+        'fia' => $faker->randomElement(['yes','no']),
         'ext' => $faker->realText(20,2),
         'fre' => $faker->realText(20,2),
         'dur' => $faker->realText(20,2),

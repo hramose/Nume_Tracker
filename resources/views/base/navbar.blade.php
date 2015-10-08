@@ -60,8 +60,8 @@
               @if(Auth::user()->role == 'patient')
               <ul class="dropdown-menu" role="menu">
                 <li><a href="perfil">Perfil</a></li>
-                <li><a href="#">Historia Clínica</a></li>
-                <li><a href="#">Agendar cita</a></li>
+                <li><a href="historia-clinica">Historia Clínica</a></li>
+                <li><a href="agendar-cita">Agendar cita</a></li>
                 <li><a href="#">Seguimiento</a></li>
                 <li><a href="#">Historial</a></li>
                 <li class="divider"></li>

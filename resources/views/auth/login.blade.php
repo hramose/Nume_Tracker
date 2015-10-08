@@ -104,8 +104,8 @@
 <div id="content">
     <div class="container">
         <div class="row">
+        	<hr class="margin1">
             <div class="col-sm-offset-2 col-sm-8">
-                <hr class="margin1">
 				<h3 id="subtitulo">Bienvenid@ !</h3>
 				<div class="tabbable-panel">
 					<div class="tabbable-line">
@@ -156,9 +156,8 @@
 						</div>
 					</div>
 				</div>
-				<hr class="margin1">
-				<br>
             </div>
+            <hr class="margin1">
         </div>
     </div>
 </div>
