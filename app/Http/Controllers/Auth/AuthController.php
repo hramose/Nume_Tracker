@@ -152,7 +152,7 @@ class AuthController extends Controller
                 'fri' => array_key_exists('Fri', $data),
                 'sat' => array_key_exists('Sat', $data),
                 'initial_hour' => $data['initial_hour'],
-                'final_hour' => $data['initial_hour']
+                'final_hour' => $data['final_hour']
             ]);
         }
 

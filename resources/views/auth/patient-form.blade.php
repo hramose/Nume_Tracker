@@ -27,7 +27,7 @@
 	<br>
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="formGroup">
-			<img src="assets/images/base/no-photo.png" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
+			<img src="{{ asset('assets/images/base/no-photo.png') }}" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
 		</label>
 		<div class="col-sm-5" id="input-photo">
 			{!! Form::hidden('photo', '') !!}

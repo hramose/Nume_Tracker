@@ -9,13 +9,13 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li>
-                                <a href="/">
+                                <a href="{{ url('/') }}">
                                     <span>Home</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li class="sub-menu">
-                                <a href="que-es-nume">
+                                <a href="{{ url('que-es-nume') }}">
                                     <span>¿Qué es Nume?</span>
                                 </a>
                                 <strong></strong>
@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                             <li class="sub-menu">
-                                <a href="nutricion">
+                                <a href="{{ url('nutricion') }}">
                                     <span>Nutrición</span>
                                 </a>
                                 <strong></strong>
@@ -49,13 +49,13 @@
                                 </ul>
                             </li>
                             <li class="active">
-                                <a href="blog">
+                                <a href="{{ url('blog') }}">
                                     <span>Blog</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="contacto">
+                                <a href="{{ url('contacto') }}">
                                     <span>Contacto</span>
                                 </a>
                                 <strong></strong>
@@ -77,8 +77,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>

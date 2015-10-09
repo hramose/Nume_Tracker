@@ -28,9 +28,9 @@
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="formGroup">
 			@if(Auth::user()->photo == '')
-			<img src="assets/images/base/no-photo.png" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
+			<img src="{{ asset('assets/images/base/no-photo.png') }}" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
 			@else
-			<img src="{{ 'storage/'.Auth::user()->photo }}" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
+			<img src="{{ asset('storage/'.Auth::user()->photo) }}" alt="Foto de perfil" class="img-responsive img-circle img-thumbnail" id="photo">
 			@endif
 		</label>
 		<div class="col-sm-5" id="input-photo">

@@ -33,56 +33,53 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/" style="font-weight:bolder;">Nume Tracker</a>
+          <a class="navbar-brand" href="{{ url('/') }}" style="font-weight:bolder;">Nume Tracker</a>
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-x">
           @if(Auth::guest())
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/"><img src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
-            <li><a href="iniciar-sesion" style="font-weight:bolder;">Iniciar sesión</a></li>
-            <li><a href="registro">Registrarte</a></li>
-            <!--<li>
-              <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse-h" aria-expanded="false" aria-controls="nav-collapse-h" id="togglebtn">Toggle test <i class=""></i> </a>
-            </li>-->
+            <li><a href="{{ url('/') }}"><img src="{{ asset('assets/images/base/home-icon.png') }}" alt="home" width="20" id="home"/></a></li>
+            <li><a href="{{ url('iniciar-sesion') }}" style="font-weight:bolder;">Iniciar sesión</a></li>
+            <li><a href="{{ url('registro') }}">Registrarte</a></li>
           </ul>
           @else
           <ul class="nav navbar-nav nav-collapse collapse in" role="search" id="nav-collapse-h" aria-expanded="true">
             <li class="dropdown" id="user">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #303030;padding-bottom:9px; padding-top:11px;">
                 @if(Auth::user()->photo=='')
-                <img class="img-circle" src="assets/images/base/no-photo.png" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
+                <img class="img-circle" src="{{ asset('assets/images/base/no-photo.png') }}" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
                 @else
-                <img class="img-circle" src="{{ 'storage/'.Auth::user()->photo }}" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
+                <img class="img-circle" src="{{ asset('storage/'.Auth::user()->photo) }}" alt="" width="30" height="30" style="margin-right:10px;"/>{{ Auth::user()->first_name }}<span id="larr" class="caret"></span>
                 @endif
               </a>
               @if(Auth::user()->role == 'patient')
               <ul class="dropdown-menu" role="menu">
-                <li><a href="perfil">Perfil</a></li>
-                <li><a href="historia-clinica">Historia Clínica</a></li>
-                <li><a href="agendar-cita">Agendar cita</a></li>
-                <li><a href="#">Seguimiento</a></li>
-                <li><a href="#">Historial</a></li>
+                <li><a href="{{ url('perfil') }}">Perfil</a></li>
+                <li><a href="{{ url('historia-clinica') }}">Historia Clínica</a></li>
+                <li><a href="{{ url('agendar-cita') }}">Agendar cita</a></li>
+                <li><a href="{{ url('/') }}">Seguimiento</a></li>
+                <li><a href="{{ url('/') }}">Historial</a></li>
                 <li class="divider"></li>
-                <li><a href="cerrar-sesion">Cerrar sesión</a></li>
+                <li><a href="{{ url('cerrar-sesion') }}">Cerrar sesión</a></li>
               </ul>
               @elseif(Auth::user()->role == 'nutritionist')
               <ul class="dropdown-menu" role="menu">
-                <li><a href="perfil">Perfil</a></li>
-                <li><a href="#">Citas</a></li>
+                <li><a href="{{ url('perfil') }}">Perfil</a></li>
+                <li><a href="{{ url('/') }}">Citas</a></li>
                 <li class="divider"></li>
-                <li><a href="cerrar-sesion">Cerrar sesión</a></li>
+                <li><a href="{{ url('cerrar-sesion') }}">Cerrar sesión</a></li>
               </ul>
               @elseif(Auth::user()->role == 'admin')
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Panel de administración</a></li>
+                <li><a href="{{ url('/') }}">Panel de administración</a></li>
                 <li class="divider"></li>
-                <li><a href="cerrar-sesion">Cerrar sesión</a></li>
+                <li><a href="{{ url('cerrar-sesion') }}">Cerrar sesión</a></li>
               </ul>
               @endif
             </li>
-            <li><a href="/"><img src="assets/images/base/home-icon.png" alt="home" width="20" id="home"/></a></li>
+            <li><a href="{{ url('/') }}"><img src="{{ asset('assets/images/base/home-icon.png') }}" alt="home" width="20" id="home"/></a></li>
           </ul>
           @endif
         </div><!-- /.navbar-collapse -->

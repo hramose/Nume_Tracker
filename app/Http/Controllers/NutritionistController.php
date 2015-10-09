@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\Request as R2;
 
 class NutritionistController extends Controller
 {
@@ -85,7 +86,7 @@ class NutritionistController extends Controller
         $nutritionistFile->fri = array_key_exists('Fri', $data);
         $nutritionistFile->sat = array_key_exists('Sat', $data);
         $nutritionistFile->initial_hour = $data['initial_hour'];
-        $nutritionistFile->final_hour = $data['initial_hour'];
+        $nutritionistFile->final_hour = $data['final_hour'];
         $nutritionistFile->save();
 
         return redirect('perfil-nutriologo')->with('success','Se han guardado los cambios con êxito.');
@@ -96,5 +97,12 @@ class NutritionistController extends Controller
         $users = User::where('role', '=', 'nutritionist')->paginate(5);
 
         return view('patient.nutritionist-list',compact('users'));
+    }
+
+    public function showFile($id)
+    {
+        $user = User::find($id);
+
+        return view('patient.nutritionist-file',compact('user'));
     }
 }

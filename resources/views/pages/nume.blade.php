@@ -9,13 +9,13 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li>
-                                <a href="/">
+                                <a href="{{ url('/') }}">
                                     <span>Home</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li class="active sub-menu">
-                                <a href="que-es-nume">
+                                <a href="{{ url('que-es-nume') }}">
                                     <span>¿Qué es Nume?</span>
                                 </a>
                                 <strong></strong>
@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                             <li class="sub-menu">
-                                <a href="nutricion">
+                                <a href="{{ url('nutricion') }}">
                                     <span>Nutrición</span>
                                 </a>
                                 <strong></strong>
@@ -49,13 +49,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="blog">
+                                <a href="{{ url('blog') }}">
                                     <span>Blog</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="contacto">
+                                <a href="{{ url('contacto') }}">
                                     <span>Contacto</span>
                                 </a>
                                 <strong></strong>
@@ -77,8 +77,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>
@@ -97,21 +97,21 @@
                         <h2>Why Is Nutrition Important?</h2>
                         <ul class="list5">
                             <li>
-                                <img src="assets/images/nume/page2_pic1.jpg" alt="">
+                                <img src="{{ asset('assets/images/nume/page2_pic1.jpg') }}" alt="">
                                 <h3><a href="#">feryuasa kerymigyt </a></h3>
                                 <p>
                                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore <a href="#">[...]</a>
                                 </p>
                             </li>
                             <li>
-                               <img src="assets/images/nume/page2_pic2.jpg" alt="">
+                               <img src="{{ asset('assets/images/nume/page2_pic2.jpg') }}" alt="">
                                 <h3><a href="#">minima veniam quis</a></h3>
                                 <p>
                                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore <a href="#">[...]</a>
                                 </p>
                             </li>
                             <li class="right">
-                                <img src="assets/images/nume/page2_pic3.jpg" alt="">
+                                <img src="{{ asset('assets/images/nume/page2_pic3.jpg') }}" alt="">
                                 <h3><a href="#">iure reprehend</a></h3>
                                 <p>
                                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore <a href="#">[...]</a>
@@ -120,7 +120,7 @@
                         </ul>
                         <hr class="margin2">
                         <h2>What Is The Correct Nutritional Balance?</h2>
-                        <img src="assets/images/nume/page2_pic4.jpg" alt="" class="margin3 pull-left img-responsive">
+                        <img src="{{ asset('assets/images/nume/page2_pic4.jpg') }}" alt="" class="margin3 pull-left img-responsive">
                         <div class="padding1">
                             <h3 class="margin4">
                                 <a href="#">in pede mi, aliquet sit amet, euismod in, auctor ut, ligula aliquam. </a>
@@ -162,7 +162,7 @@
                                 </p>
                             </dd>
                         </dl>
-                        <a href="#" class="bannerBlock"><img class="img-responsive" src="assets/images/nume/page2_pic5.jpg" alt=""></a>
+                        <a href="#" class="bannerBlock"><img class="img-responsive" src="{{ asset('assets/images/nume/page2_pic5.jpg') }}" alt=""></a>
                     </div>
                 </div>
             </div>

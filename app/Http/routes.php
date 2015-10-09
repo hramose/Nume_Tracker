@@ -30,7 +30,7 @@ Route::post('registro', 'Auth\AuthController@postRegister');
 
 //Direccionamiento segun rol
 
-Route::get('perfil','UserController@profile');
+Route::get('/perfil','UserController@profile');
 
 // Paciente
 
@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth','is_patient']],function(){
 	Route::get('historia-clinica','PatientController@showHcn');
 	Route::post('historia-clinica','PatientController@saveHcn');
 	Route::get('agendar-cita','NutritionistController@showDirectory');
+	Route::get('nutriologo/{id}','NutritionistController@showFile');
 });
 
 //Nutriólogo

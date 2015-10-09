@@ -91,8 +91,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>
@@ -148,7 +148,7 @@
 											<button type="submit" class="btn btn-success btn-lg">
 												<span class="glyphicon glyphicon-ok"></span> Entrar
 											</button>
-											<a style="margin-left:15px;" href="registro">Quiero&nbsp;registrarme</a>
+											<a style="margin-left:15px;" href="{{ url('registro') }}">Quiero&nbsp;registrarme</a>
 										</div>
 									</div>
 								{!! Form::close() !!}

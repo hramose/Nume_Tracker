@@ -95,31 +95,31 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li>
-                                <a href="perfil">
+                                <a href="{{ url('perfil') }}">
                                     <span>Perfil</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li class="active">
-                                <a href="historia-clinica">
+                                <a href="{{ url('historia-clinica') }}">
                                     <span>HCN</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="agendar-cita">
+                                <a href="{{ url('agendar-cita') }}">
                                     <span>Agendar cita</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="seguimiento">
+                                <a href="{{ url('seguimiento') }}">
                                     <span>Seguimiento</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="historial">
+                                <a href="{{ url('historial') }}">
                                     <span>Historial</span>
                                 </a>
                                 <strong></strong>
@@ -133,8 +133,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>

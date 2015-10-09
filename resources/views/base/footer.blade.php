@@ -5,51 +5,51 @@
                 <h2>fresh recipes</h2>
                 <ul class="list3">
                     <li>
-                        <a href="assets/images/base/footer_pic1.jpg" class="thumbnail">
+                        <a href="#" class="thumbnail">
                             <span class="sitem_over">
                                 <strong></strong>
                             </span>
-                            <img src="assets/images/base/footer_pic1.jpg" alt="">
+                            <img src="{{ asset('assets/images/base/footer_pic1.jpg') }}" alt="">
                         </a>
                     </li>
                      <li>
-                        <a href="assets/images/base/footer_pic2.jpg" class="thumbnail">
+                        <a href="#" class="thumbnail">
                             <span class="sitem_over">
                                 <strong></strong>
                             </span>
-                            <img src="assets/images/base/footer_pic2.jpg" alt="">
+                            <img src="{{ asset('assets/images/base/footer_pic2.jpg') }}" alt="">
                         </a>
                     </li>
                     <li class="right">
-                        <a href="assets/images/base/footer_pic3.jpg" class="thumbnail">
+                        <a href="#" class="thumbnail">
                             <span class="sitem_over">
                                 <strong></strong>
                             </span>
-                            <img src="assets/images/base/footer_pic3.jpg" alt="">
+                            <img src="{{ asset('assets/images/base/footer_pic3.jpg') }}" alt="">
                         </a>
                     </li>
                     <li>
-                        <a href="assets/images/base/footer_pic4.jpg" class="thumbnail">
+                        <a href="#" class="thumbnail">
                             <span class="sitem_over">
                                 <strong></strong>
                             </span>
-                            <img src="assets/images/base/footer_pic4.jpg" alt="">
+                            <img src="{{ asset('assets/images/base/footer_pic4.jpg') }}" alt="">
                         </a>
                     </li>
                     <li>
-                        <a href="assets/images/base/footer_pic5.jpg" class="thumbnail">
+                        <a href="#" class="thumbnail">
                             <span class="sitem_over">
                                 <strong></strong>
                             </span>
-                            <img src="assets/images/base/footer_pic5.jpg" alt="">
+                            <img src="{{ asset('assets/images/base/footer_pic5.jpg') }}" alt="">
                         </a>
                     </li>
                     <li class="right">
-                        <a href="assets/images/base/footer_pic6.jpg" class="thumbnail">
+                        <a href="#" class="thumbnail">
                             <span class="sitem_over">
                                 <strong></strong>
                             </span>
-                            <img src="assets/images/base/footer_pic6.jpg" alt="">
+                            <img src="{{ asset('assets/images/base/footer_pic6.jpg') }}" alt="">
                         </a>
                     </li>
                 </ul>
@@ -78,16 +78,16 @@
                 </address>
                 <ul class="soc_icons">
                     <li>
-                        <a href="#"><img src="assets/images/base/soc_icon1.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('assets/images/base/soc_icon1.png') }}" alt=""></a>
                     </li>
                     <li>
-                        <a href="#"><img src="assets/images/base/soc_icon2.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('assets/images/base/soc_icon2.png') }}" alt=""></a>
                     </li>
                     <li>
-                        <a href="#"><img src="assets/images/base/soc_icon3.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('assets/images/base/soc_icon3.png') }}" alt=""></a>
                     </li>
                     <li>
-                        <a href="#"><img src="assets/images/base/soc_icon4.png" alt=""></a>
+                        <a href="#"><img src="{{ asset('assets/images/base/soc_icon4.png') }}" alt=""></a>
                     </li>
                 </ul>
             </div>
@@ -99,11 +99,11 @@
         <div class="row">
             <div class="col-sm-6 floatRight1200">
                 <ul class="links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="que-es-nume">¿Qué es Nume?</a></li>
-                    <li><a href="nutricion">Nutrición</a></li>
-                    <li><a href="blog">Blog</a></li>
-                    <li><a href="contacto">Contacto</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('que-es-nume') }}">¿Qué es Nume?</a></li>
+                    <li><a href="{{ url('nutricion') }}">Nutrición</a></li>
+                    <li><a href="{{ url('blog') }}">Blog</a></li>
+                    <li><a href="{{ url('contacto') }}">Contacto</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 floatLeft1200">

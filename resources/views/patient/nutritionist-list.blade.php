@@ -76,8 +76,9 @@
   transition: all .2s ease-in-out;
 }
 
-#nut_item h3:hover{
+#nut_item h3:hover, .email_link:hover{
   color:rgb(180,220,100) !important;
+  text-decoration: none;
   transform: scale(1.01);
 }
 
@@ -97,9 +98,28 @@
   transform: scale(1.05);
 }
 
+.email_link{
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  color: #333;
+}
+
 #photo{
   width: 100px;
   height: 100px;
+}
+
+.pagination li.active span{
+    color: #fff;
+    background-color:rgb(141,198,63) !important;
+    border-color:rgb(141,198,63) !important;
+}
+
+.pagination li a{
+    color:rgb(141,198,63) !important;
 }
 
 </style>
@@ -114,31 +134,31 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li>
-                                <a href="perfil">
+                                <a href="{{ url('perfil') }}">
                                     <span>Perfil</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="historia-clinica">
+                                <a href="{{ url('historia-clinica') }}">
                                     <span>HCN</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li class="active">
-                                <a href="agendar-cita">
+                                <a href="{{ url('agendar-cita') }}">
                                     <span>Agendar cita</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="seguimiento">
+                                <a href="{{ url('seguimiento') }}">
                                     <span>Seguimiento</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="historial">
+                                <a href="{{ url('historial') }}">
                                     <span>Historial</span>
                                 </a>
                                 <strong></strong>
@@ -152,8 +172,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>
@@ -185,16 +205,16 @@
 
                                 <div class="row" id="nut_item">
                                   <div class="col-sm-2">
-                                    <a href="nutritionist/{{ $user->id }}" class="thumbnail">
+                                    <a href="{{ url('nutriologo/'.$user->id) }}" class="thumbnail">
                                       @if($user->photo == '')
-                                      <img src="assets/images/base/no-photo.png" alt="" class="img-responsive img-circle img-thumbnail" id="photo">
+                                      <img src="{{ asset('assets/images/base/no-photo.png') }}" alt="" class="img-responsive img-circle img-thumbnail" id="photo">
                                       @else
-                                      <img src="{{ 'storage/'.$user->photo }}" alt="" class="img-responsive img-circle img-thumbnail" id="photo">
+                                      <img src="{{ asset('storage/'.$user->photo) }}" alt="" class="img-responsive img-circle img-thumbnail" id="photo">
                                       @endif
                                     </a>
                                   </div>
                                   <div class="col-sm-6">
-                                    <a href="nutritionist/{{ $user->id }}" id="link-h3">
+                                    <a href="{{ url('nutriologo/'.$user->id) }}" id="link-h3">
                                       <h3 style="text-transform:none !important; color:#333;">
                                         <span class="glyphicon glyphicon-apple"></span>&nbsp;
                                         {{ $user->first_name.' '.$user->last_name }}
@@ -207,11 +227,15 @@
                                       {{ $user->street.' '.$user->number.', '.$user->neighborhood.', '.$user->city }}</p>
                                   </div>
                                   <div class="col-sm-4">
-                                    <p><span class="glyphicon glyphicon-star"></span>&nbsp; {{ $user->nutritionistFile->ranking }}</p>
-                                    <p><span class="glyphicon glyphicon-earphone"></span>&nbsp; {{ $user->nutritionistFile->office_phone }}</p>
-                                    <p><span class="glyphicon glyphicon-envelope"></span>&nbsp; {{ $user->email }}</p>
+                                    <p><span class="glyphicon glyphicon-star"></span>
+                                      &nbsp;{{ $user->nutritionistFile->ranking }}</p>
+                                    <p><span class="glyphicon glyphicon-earphone"></span>
+                                      &nbsp;{{ $user->nutritionistFile->office_phone }}</p>
+                                    <p><span class="glyphicon glyphicon-envelope"></span>
+                                      &nbsp;<a href="mailto:{{ $user->email }}" class="email_link">{{ $user->email }}</a></p>
                                   </div>
                                 </div>
+                                <br>
                                 <hr class="margin1">
                                 <br>
                                 
@@ -219,7 +243,7 @@
 
                                 <div class="row">
                                   <div class="col-sm-12" style="text-align:center;">
-                                    {!! $users->render() !!}
+                                    {!! $users->setPath('')->render() !!}
                                   </div>
                                 </div>
 

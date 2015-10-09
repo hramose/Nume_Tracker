@@ -9,13 +9,13 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li>
-                                <a href="/">
+                                <a href="{{ url('/') }}">
                                     <span>Home</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li class="sub-menu">
-                                <a href="que-es-nume">
+                                <a href="{{ url('que-es-nume') }}">
                                     <span>¿Qué es Nume?</span>
                                 </a>
                                 <strong></strong>
@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                             <li class="active sub-menu">
-                                <a href="nutricion">
+                                <a href="{{ url('nutricion') }}">
                                     <span>Nutrición</span>
                                 </a>
                                 <strong></strong>
@@ -49,13 +49,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="blog">
+                                <a href="{{ url('blog') }}">
                                     <span>Blog</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="contacto">
+                                <a href="{{ url('contacto') }}">
                                     <span>Contacto</span>
                                 </a>
                                 <strong></strong>
@@ -77,8 +77,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>
@@ -113,7 +113,7 @@
                         <h2>Weight Reduction Programs</h2>
                         <ul class="list8">
                             <li>
-                                <img src="assets/images/nutricion/page4_pic1.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page4_pic1.jpg') }}" alt="">
                                 <div>
                                     <h3>
                                         <a href="#">
@@ -129,7 +129,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="assets/images/nutricion/page4_pic2.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page4_pic2.jpg') }}" alt="">
                                 <div>
                                     <h3>
                                         <a href="#">
@@ -145,7 +145,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="assets/images/nutricion/page4_pic3.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page4_pic3.jpg') }}" alt="">
                                 <div>
                                     <h3>
                                         <a href="#">
@@ -204,28 +204,28 @@
                         <h2>Healthy Eating &amp; Diets</h2>
                         <ul class="list6 row">
                             <li class="col-sm-4">
-                                <img src="assets/images/nutricion/page3_pic1.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page3_pic1.jpg') }}" alt="">
                                 <div>
                                     <p>Share your top fall fruit recipes</p>
                                     <p><a href="#" class="btn">more</a></p>
                                 </div>
                             </li>
                             <li class="col-sm-4">
-                                <img src="assets/images/nutricion/page3_pic2.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page3_pic2.jpg') }}" alt="">
                                 <div>
                                     <p>Easy, healthy brown bag lunch ideas</p>
                                     <p><a href="#" class="btn">more</a></p>
                                 </div>
                             </li>
                             <li class="col-sm-4">
-                                <img src="assets/images/nutricion/page3_pic3.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page3_pic3.jpg') }}" alt="">
                                 <div>
                                     <p>Vitamins and supplements: what should you take?</p>
                                     <p><a href="#" class="btn">more</a></p>
                                 </div>
                             </li>
                             <li class="col-sm-4">
-                                <img src="assets/images/nutricion/page3_pic4.jpg" alt="">
+                                <img src="{{ asset('assets/images/nutricion/page3_pic4.jpg') }}" alt="">
                                 <div>
                                     <p>Best ways to spruce up your salads</p>
                                     <p><a href="#" class="btn">more</a></p>
@@ -235,7 +235,7 @@
                         <div class="clearfix"></div>
                         <hr class="margin7">
                         <h2 class="margin9">Expert Answers to Your Diet Questions</h2>
-                        <img src="assets/images/nutricion/page3_pic5.jpg" alt="" class="pull-left margin6">
+                        <img src="{{ asset('assets/images/nutricion/page3_pic5.jpg') }}" alt="" class="pull-left margin6">
                         <div>
                             <h3><a href="#">neque porro quisquam est, qui dolorem ips?</a></h3>
                             <p>

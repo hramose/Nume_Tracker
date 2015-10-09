@@ -95,13 +95,13 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li class="active">
-                                <a href="perfil">
+                                <a href="{{ url('perfil') }}">
                                     <span>Perfil</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="citas">
+                                <a href="{{ url('citas') }}">
                                     <span>Citas</span>
                                 </a>
                                 <strong></strong>
@@ -115,8 +115,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>

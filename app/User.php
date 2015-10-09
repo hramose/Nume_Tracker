@@ -57,4 +57,17 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('App\Meetings','nutritionist_id');
     }
+
+    public function getAddress()
+    {
+        return $this->street.' '.$this->number.', '.$this->neighborhood.', CP '.$this->zip_code.', '.
+                $this->city.', '.$this->state.', '.$this->country;
+    }
+
+    public function getUrlLocation()
+    {
+        $url = str_replace(" ","+",$this->street)."+".$this->number;
+
+        return $url;
+    }
 }

@@ -9,13 +9,13 @@
                     <div class="navbar-collapse collapse">
                         <ul class="sf-menu sf-js-enabled">
                             <li class="active">
-                                <a href="/">
+                                <a href="{{ url('/') }}">
                                     <span>Home</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li class="sub-menu">
-                                <a href="que-es-nume">
+                                <a href="{{ url('que-es-nume') }}">
                                     <span>¿Qué es Nume?</span>
                                 </a>
                                 <strong></strong>
@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                             <li class="sub-menu">
-                                <a href="nutricion">
+                                <a href="{{ url('nutricion') }}">
                                     <span>Nutrición</span>
                                 </a>
                                 <strong></strong>
@@ -49,13 +49,13 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="blog">
+                                <a href="{{ url('blog') }}">
                                     <span>Blog</span>
                                 </a>
                                 <strong></strong>
                             </li>
                             <li>
-                                <a href="contacto">
+                                <a href="{{ url('contacto') }}">
                                     <span>Contacto</span>
                                 </a>
                                 <strong></strong>
@@ -77,8 +77,8 @@
     <div class="row">
         <div class="col-md-12">
             <h1 class="brand">
-                <a href="/">
-                    <img class="img-responsive center-block" src="assets/images/home/logo.png" alt="">
+                <a href="{{ url('/') }}">
+                    <img class="img-responsive center-block" src="{{ asset('assets/images/home/logo.png') }}" alt="">
                 </a>
             </h1>
         </div>
@@ -100,19 +100,19 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="center-block" src="assets/images/home/slider1.jpg" alt="Chania">
+          <img class="center-block" src="{{ asset('assets/images/home/slider1.jpg') }}" alt="Chania">
         </div>
 
         <div class="item">
-          <img class="center-block" src="assets/images/home/slider2.jpg" alt="Chania">
+          <img class="center-block" src="{{ asset('assets/images/home/slider2.jpg') }}" alt="Chania">
         </div>
 
         <div class="item">
-          <img class="center-block" src="assets/images/home/slider3.jpg" alt="Flower">
+          <img class="center-block" src="{{ asset('assets/images/home/slider3.jpg') }}" alt="Flower">
         </div>
 
         <div class="item">
-          <img class="center-block" src="assets/images/home/slider4.jpg" alt="Flower">
+          <img class="center-block" src="{{ asset('assets/images/home/slider4.jpg') }}" alt="Flower">
         </div>
       </div>
 
@@ -134,7 +134,7 @@
                     <li class="col-sm-3 max-height" style="height: 284px;">
                         <div class="box_inner">
                             <span class="badge">
-                                <img src="assets/images/home/page1_icon1.png" alt="">
+                                <img src="{{ asset('assets/images/home/page1_icon1.png') }}" alt="">
                             </span>
                             <p>Ersvitae ertyas nemosera lasecaerat niptaiades keuytaser asetraseas goetayse.</p>
                             <p><a href="#" class="btn">more</a></p>
@@ -143,7 +143,7 @@
                     <li class="col-sm-3 max-height" style="height: 284px;">
                         <div class="box_inner">
                             <span class="badge">
-                                <img src="assets/images/home/page1_icon2.png" alt="">
+                                <img src="{{ asset('assets/images/home/page1_icon2.png') }}" alt="">
                             </span>
                             <p>Vertasdera nveriti vitaesaert asetyertya aset aplicabrde ertyas adesferas niuyras.</p>
                             <p><a href="#" class="btn">more</a></p>
@@ -152,7 +152,7 @@
                     <li class="col-sm-3 max-height" style="height: 284px;">
                         <div class="box_inner">
                             <span class="badge">
-                                <img src="assets/images/home/page1_icon3.png" alt="">
+                                <img src="{{ asset('assets/images/home/page1_icon3.png') }}" alt="">
                             </span>
                             <p>Beciegast nveriti vitaesaert asetyertya aset aplicabrde ertyas nemo eniptaiades.</p>
                             <p><a href="#" class="btn">more</a></p>
@@ -161,7 +161,7 @@
                     <li class="col-sm-3 max-height" style="height: 284px;">
                         <div class="box_inner">
                             <span class="badge">
-                                <img src="assets/images/home/page1_icon4.png" alt="">
+                                <img src="{{ asset('assets/images/home/page1_icon4.png') }}" alt="">
                             </span>
                             <p>Katrseasa nveriti vitaesaert asetyertya aset aplicabrde ertyas nemo eniptaiades.</p>
                             <p><a href="#" class="btn">more</a></p>
