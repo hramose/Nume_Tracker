@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth','is_patient']],function(){
 Route::group(['middleware' => ['auth','is_nutritionist']],function(){
 	Route::get('perfil-nutriologo','NutritionistController@showProfile');
 	Route::post('perfil-nutriologo','NutritionistController@saveProfile');
+	Route::get('citas','NutritionistController@showSchedule');
 });
 
 

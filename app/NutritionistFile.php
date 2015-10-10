@@ -79,7 +79,8 @@ class NutritionistFile extends Model
                     foreach($this->getAvailableMeetings($i) as $meeting){
                         $html = $html."<label data-date=\"".$week[$wday]." ".$strMDay." ".
                                 "de ".$this->getMonthYear()."\" data-horary=\"".$meeting.
-                                "\" data-inh=\"".$dateComplete." ".$meeting.":00\"class=\"schedule\">".$meeting."</label>\n";
+                                "\" data-inh=\"".$dateComplete." ".$meeting.":00\"class=\"schedule\">".
+                                $meeting."</label>\n";
                     }
                 }
                 else{

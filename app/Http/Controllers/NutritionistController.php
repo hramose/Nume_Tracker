@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\User;
+use App\Meeting;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -104,5 +105,14 @@ class NutritionistController extends Controller
         $user = User::find($id);
 
         return view('patient.nutritionist-file',compact('user'));
+    }
+
+    public function showSchedule()
+    {
+        $meetings = Meeting::where('nutritionist_id','=',\Auth::user()->id)
+                           //->orderBy('date_time','ASC')
+                           ->paginate(10);
+
+        return view('nutritionist.meetings',compact('meetings'));
     }
 }

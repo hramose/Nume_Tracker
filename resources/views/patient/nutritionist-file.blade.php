@@ -399,9 +399,5 @@ th label:hover{
     $('#dti').attr('value',$(this).attr('data-inh'));
     $('#myModal').modal('show');
   }
-
-  function doSubmit() {
-    $(this).submit();
-  }
 </script>
 @endsection
