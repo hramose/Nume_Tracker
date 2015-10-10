@@ -48,38 +48,66 @@ class NutritionistFile extends Model
         return $days;
     }
 
-    public function getSchedule($value='')
+    public function getSchedule()
     {
         return date('H:00',strtotime($this->initial_hour))." a ".date('H:00',strtotime($this->final_hour));
     }
 
-    public function getDateDay($subjectDay)
+    public function getScheduleDiary()
     {
-        $currentDay = getdate()['wday'];
+        $wday = intval(date('w'));
+        $mday = date('Y-m-j');
+        $week = [1 => "Lunes",2 => "Martes",3 => "Miércoles",4 => "Jueves",5 => "Viernes",6 => "Sábado"];
+        $workDays = [1 => $this->mon,2 => $this->tue,3 => $this->wed,4 => $this->thu,5 => $this->fri,6 => $this->sat];
+        $dateComplete = '';
+        $html = '';
 
-        if($subjectDay <= $currentDay){
-            $resultDay = date('d', strtotime('-'.($currentDay-$subjectDay).' day'));
-        }
-        else{
-            $resultDay = date('d', strtotime('+'.($subjectDay-$currentDay).' day'));
+        for($i=0;$i<7;$i++)
+        {
+            if($wday == 7){
+                $wday = 0;
+            }
+
+            if($wday!=0){
+                $strMDay = strtotime('+'.$i.' day',strtotime($mday));
+                $dateComplete = date('Y-m-d',$strMDay);
+                $strMDay = date('d',$strMDay);
+                $html = $html."<tr>\n<th>\n<div class=\"col-xs-2\">\n<span>".$week[$wday].
+                              "&nbsp;&nbsp;&nbsp;".$strMDay."</span>\n</div>\n<div class=\"col-xs-10\">\n";
+
+                if($workDays[$wday]){
+                    foreach($this->getAvailableMeetings($i) as $meeting){
+                        $html = $html."<label data-date=\"".$week[$wday]." ".$strMDay." ".
+                                "de ".$this->getMonthYear()."\" data-horary=\"".$meeting.
+                                "\" data-inh=\"".$dateComplete." ".$meeting.":00\"class=\"schedule\">".$meeting."</label>\n";
+                    }
+                }
+                else{
+                    $html = $html."<p class=\"nd\"><i>Día inactivo</i></p>";
+                }
+
+                $html = $html."</div>\n</th>\n</tr>";
+            }
+
+            $wday += 1;
         }
 
-        return $resultDay;
+        return $html;
     }
 
-    public function getAvailableMeetings($subjectDay)
+    public function getAvailableMeetings($addedDays)
     {
-        $today = getdate();
-        $currentDay = $today['wday'];
+        $initialHour = intval(date('H',strtotime($this->initial_hour)));
+        $finalHour = intval(date('H',strtotime($this->final_hour)));
+        $meetingDate = date('Y-m-d', strtotime('+'.$addedDays.' day'));
         $meetings = [];
 
-        if($subjectDay>=$currentDay){
-            $initialHour = intval(date('H',strtotime($this->initial_hour)));
-            $finalHour = intval(date('H',strtotime($this->final_hour)));
-            $meetingDate = date('Y-m-d', strtotime('+'.($subjectDay-$currentDay).' day'));
-
-            for($hour = $initialHour;$hour <= $finalHour; $hour++){
-                if($today['hours']<$hour && !$this->isScheduledOrAccomplished($meetingDate,$hour)){
+        for($hour = $initialHour;$hour <= $finalHour; $hour++){
+            if($this->isAvailable($meetingDate,$hour)){
+                if($addedDays > 0){
+                    array_push($meetings,date('H:i',strtotime($hour.':00')));
+                }
+                else if(getdate()['hours']<$hour){
                     array_push($meetings,date('H:i',strtotime($hour.':00')));
                 }
             }
@@ -88,16 +116,28 @@ class NutritionistFile extends Model
         return $meetings;
     }
 
-    protected function isScheduledOrAccomplished($meetingDate,$hour)
-    {
-        $meetings = Meeting::whereRaw('nutririonist_id = '.$this->id.
-                                      ' and date_time = "'.$meetingDate.' '.$hour.':00"', [25])->get();
+    protected function isAvailable($meetingDate,$hour)
+    {   
+        $query = 'nutritionist_id = \''.$this->user->id.'\' and date_time = \''.$meetingDate.' '.$hour.':00:00\'';
+        $meeting = Meeting::whereRaw($query)->get();
 
-        if(count($meetings)==0){
-            return false;
+        if(count($meeting) == 0 || $meeting[0]->status == 'cancelled')
+        {
+            return true;
         }
 
-        return true;
+        return false;
+    }
+
+    public function getMonthYear()
+    {
+        $months = [1 => 'Enero',2 => 'Febrero',3 => 'Marzo',4 => 'Abril',5 => 'Mayo',6 => 'Junio',
+                   7 => 'Julio',8 => 'Agosto',9 => 'Septiembre',10 => 'Octubre',11 => 'Noviembre',12 => 'Diciembre'];
+
+        $m = date('n');
+        $y =date('Y');
+
+        return $months[$m]." ".$y;
     }
 
 }

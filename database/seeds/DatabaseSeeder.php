@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        //Creación del usuario administrador
         factory(App\User::class)->create($this->mySuperUser());
-        $myUser = factory(App\User::class)->create($this->myUser());
 
+        //Usuario paciente
+        $myUser = factory(App\User::class)->create($this->myUser());
         App\CNHistory::create(['user_id' => $myUser->id]);
 
         factory(App\User::class,'patient',10)->create()->each(
@@ -25,9 +27,12 @@ class DatabaseSeeder extends Seeder
             }
         );
 
-        factory(App\User::class,'nutritionist',50)->create()->each(
+        factory(App\User::class,'nutritionist',25)->create()->each(
             function($u){
                 $u->nutritionistFile()->save(factory(App\NutritionistFile::class)->make());
+                for($i=0;$i<30;$i++){
+                    $u->nutritionistMeetings()->save(factory(App\Meeting::class)->make());
+                }
             }
         );
 

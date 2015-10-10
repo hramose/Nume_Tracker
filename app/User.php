@@ -55,7 +55,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function nutritionistMeetings()
     {
-        return $this->hasMany('App\Meetings','nutritionist_id');
+        return $this->hasMany('App\Meeting','nutritionist_id');
     }
 
     public function getAddress()
@@ -69,5 +69,10 @@ class User extends Model implements AuthenticatableContract,
         $url = str_replace(" ","+",$this->street)."+".$this->number;
 
         return $url;
+    }
+
+    public function getCompleteName()
+    {
+        return $this->first_name." ".$this->last_name;
     }
 }

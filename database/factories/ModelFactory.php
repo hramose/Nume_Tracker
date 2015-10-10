@@ -124,3 +124,11 @@ $factory->define(App\NutritionistFile::class, function (Faker\Generator $faker) 
         'final_hour' => $faker->randomElement(['18:00','19:00','21:00'])
     ];           
 });
+
+$factory->define(App\Meeting::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->randomElement([2,3,4,5,6,7,8,9,10,11,12]),
+        'date_time' => $faker->dateTimeBetween('-1 year','now'),
+        'status' => 'accomplished'
+    ];           
+});

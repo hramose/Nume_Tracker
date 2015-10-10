@@ -139,13 +139,14 @@ th span{
   margin-right:30px;
 }
 
-th a{
+th label{
   margin: 0px 10px 0px 10px;
   color:rgb(141,198,63);
 }
 
-th a:hover{
+th label:hover{
   color:#333;
+  text-decoration: underline;
 }
 
 .nd{
@@ -247,7 +248,7 @@ th a:hover{
 	                                    <a href="{{ url('nutriologo/'.$user->id) }}" id="link-h3">
 	                                    	<h2 style="text-transform:none !important; color:#333;">
 	                                        <span class="glyphicon glyphicon-apple"></span>&nbsp;
-	                                        {{ $user->first_name.' '.$user->last_name }}
+	                                        {{ $user->getCompleteName() }}
 	                                    	</h2>
 	                                    </a>
 	                                    <p><span class="glyphicon glyphicon-education"></span>&nbsp;
@@ -313,106 +314,17 @@ th a:hover{
                                 <br>
                                 <div class="row">
                                   <div class="col-sm-12">
-                                    <h3 style="text-transform:none;">Citas disponibles</h3>
+                                    <h3 style="text-transform:none;">Citas disponibles - <strong>{{ $user->nutritionistFile->getMonthYear() }}</strong></h3>
                                     <br>
+                                    @if(session('success'))
+                                    <div class="alert alert-success">
+                                      <span class="glyphicon glyphicon-ok"></span>
+                                      &nbsp;&nbsp;&nbsp;{{ session('success') }}
+                                    </div>
+                                    @endif
                                     <table class="table table-hover">
                                       <tbody>
-                                        <tr>
-                                          <th>
-                                            <div class="col-xs-3">
-                                              <span>Lunes {{ $user->nutritionistFile->getDateDay(1) }}</span>
-                                            </div>
-                                            <div class="col-xs-9">
-                                              @if($user->nutritionistFile->mon)
-                                                @foreach($user->nutritionistFile->getAvailableMeetings(1) as $meeting)
-                                                <a href="">{{ $meeting }}</a>
-                                                @endforeach
-                                              @else
-                                                <p class="nd"><i>Día sin consultas</i></p>
-                                              @endif
-                                            </div>
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <div class="col-xs-3">
-                                              <span>Martes {{ $user->nutritionistFile->getDateDay(2) }}</span>
-                                            </div>
-                                            <div class="col-xs-9">
-                                              @if($user->nutritionistFile->tue)
-                                                @foreach($user->nutritionistFile->getAvailableMeetings(2) as $meeting)
-                                                <a href="">{{ $meeting }}</a>
-                                                @endforeach
-                                              @else
-                                                <p class="nd"><i>Día sin consultas</i></p>
-                                              @endif
-                                            </div>
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <div class="col-xs-3">
-                                              <span>Miércoles {{ $user->nutritionistFile->getDateDay(3) }}</span>
-                                            </div>
-                                            <div class="col-xs-9">
-                                              @if($user->nutritionistFile->wed)
-                                                @foreach($user->nutritionistFile->getAvailableMeetings(3) as $meeting)
-                                                <a href="">{{ $meeting }}</a>
-                                                @endforeach
-                                              @else
-                                                <p class="nd"><i>Día sin consultas</i></p>
-                                              @endif
-                                            </div>
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <div class="col-xs-3">
-                                              <span>Jueves {{ $user->nutritionistFile->getDateDay(4) }}</span>
-                                            </div>
-                                            <div class="col-xs-9">
-                                              @if($user->nutritionistFile->thu)
-                                                @foreach($user->nutritionistFile->getAvailableMeetings(4) as $meeting)
-                                                <a href="">{{ $meeting }}</a>
-                                                @endforeach
-                                              @else
-                                                <p class="nd"><i>Día sin consultas</i></p>
-                                              @endif
-                                            </div>
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <div class="col-xs-3">
-                                              <span>Viernes {{ $user->nutritionistFile->getDateDay(5) }}</span>
-                                            </div>
-                                            <div class="col-xs-9">
-                                              @if($user->nutritionistFile->fri)
-                                                @foreach($user->nutritionistFile->getAvailableMeetings(5) as $meeting)
-                                                <a href="">{{ $meeting }}</a>
-                                                @endforeach
-                                              @else
-                                                <p class="nd"><i>Día sin consultas</i></p>
-                                              @endif
-                                            </div>
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <div class="col-xs-3">
-                                              <span>Sábado {{ $user->nutritionistFile->getDateDay(6) }}</span>
-                                            </div>
-                                            <div class="col-xs-9">
-                                              @if($user->nutritionistFile->sat)
-                                                @foreach($user->nutritionistFile->getAvailableMeetings(6) as $meeting)
-                                                <a href="">{{ $meeting }}</a>
-                                                @endforeach
-                                              @else
-                                                <p class="nd"><i>Día sin consultas</i></p>
-                                              @endif
-                                            </div>
-                                          </th>
-                                        </tr>
+                                        {!! $user->nutritionistFile->getScheduleDiary() !!}
                                       </tbody>
                                     </table>
                                   </div>
@@ -426,4 +338,70 @@ th a:hover{
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" style="text-transform:none;">
+          Agendar cita con {{ $user->getCompleteName() }}
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="{{ asset('assets/images/base/schedule.png') }}" alt="" class="img-responsive">
+          </div>
+          <div class="col-sm-9">
+            <p style="line-height:25px;">
+              <span class="glyphicon glyphicon-calendar"></span>
+              &nbsp;<strong>Fecha : </strong>
+              <span id="date_schedule"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <br>
+              <span class="glyphicon glyphicon-time"></span>
+              &nbsp;<strong>Hora : </strong>
+              <span id="horary"></span>
+              <br>
+              <span class="glyphicon glyphicon-map-marker"></span>
+              &nbsp;<strong>Lugar : </strong>
+              {{ $user->getAddress() }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <br>
+              <span class="glyphicon glyphicon-earphone"></span>
+              &nbsp;<strong>Teléfono del consultorio: </strong>
+              {{ $user->nutritionistFile->office_phone }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        {!! Form::open(array('method' => 'post','class' => 'form-horizontal')) !!}
+        <input name="date_time" type="hidden" id="dti" value="">
+        <input name="nutritionist_id" type="hidden" value="{{ $user->id }}">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" id="btn_confirmar" class="btn btn-primary">Confirmar</button>
+        {!! Form::close() !!}
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.schedule').click(confirmationModal);
+  });
+
+  function confirmationModal() {
+    $('#date_schedule').html($(this).attr('data-date'));
+    $('#horary').html($(this).attr('data-horary'));
+    $('#dti').attr('value',$(this).attr('data-inh'));
+    $('#myModal').modal('show');
+  }
+
+  function doSubmit() {
+    $(this).submit();
+  }
+</script>
 @endsection

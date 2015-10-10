@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\User;
+use App\Meeting;
+use App\NutritionistFile;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -124,5 +126,19 @@ class PatientController extends Controller
         $cnh->save();
 
         return redirect('historia-clinica')->with('success','Se han guardado los cambios con êxito.');
+    }
+
+    public function schedule(Request $request)
+    {
+        $data = $request->all();
+
+        $meeting = Meeting::create([
+            'user_id' => \Auth::user()->id,
+            'nutritionist_id' => $data['nutritionist_id'],
+            'date_time' => $data['date_time'],
+            'status' => 'scheduled']);
+
+        return redirect('nutriologo/'.$data['nutritionist_id'])->with('success','Su cita ha sido agendada con êxito.');
+
     }
 }
