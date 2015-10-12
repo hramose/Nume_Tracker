@@ -90,7 +90,7 @@ class NutritionistController extends Controller
         $nutritionistFile->final_hour = $data['final_hour'];
         $nutritionistFile->save();
 
-        return redirect('perfil-nutriologo')->with('success','Se han guardado los cambios con êxito.');
+        return redirect('perfil-nutriologo')->with('success','Se han guardado los cambios con éxito.');
     }
 
     public function showDirectory()
@@ -114,5 +114,75 @@ class NutritionistController extends Controller
                            ->paginate(10);
 
         return view('nutritionist.meetings',compact('meetings'));
+    }
+
+    public function cancelMeeting($id)
+    {
+        $meeting = Meeting::find($id);
+        $meeting->delete();
+
+        return redirect('citas')->with('success','Se ha cancelado la cita con éxito.');
+    }
+
+    public function updateMeeting(Request $request)
+    {
+        $data = $request->all();
+
+        $validator = Validator::make($data,[
+            'weight' => 'required|numeric',
+            'height' => 'required|numeric',
+            'waist' => 'required|numeric',
+            'hip' => 'required|numeric',
+            'arm_perimeter' => 'required|numeric',
+            'bicipital' => 'required|numeric',
+            'tricipital' => 'required|numeric',
+            'plan' => 'mimes:pdf',
+            'comment' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('citas')->with('errors',$validator->errors());
+        }
+        else{
+
+            $meeting = Meeting::find(intval($data['id']));
+            $plan = $data['plan'];
+
+            if(is_object($plan)){
+                $name = 'plan_'.$meeting->id.'.pdf';
+                \Storage::disk('local')->put($name,  \File::get($plan));
+                $meeting->plan = $name;
+            }
+
+            $meeting->weight = $data['weight']; 
+            $meeting->height = $data['height']; 
+            $meeting->waist = $data['waist']; 
+            $meeting->hip = $data['hip']; 
+            $meeting->arm_perimeter = $data['arm_perimeter']; 
+            $meeting->bicipital = $data['bicipital']; 
+            $meeting->tricipital = $data['tricipital']; 
+            $meeting->plan = $data['plan']; 
+            $meeting->comment = $data['comment']; 
+            $meeting->save();
+
+            $info_mail = ['obj' => $meeting->patient->email,'date' => $meeting->getScheduleDateTime(),'name' => $meeting->nutritionist->getCompleteName()];
+
+            \Mail::send('patient.notificationMessage', $info_mail, function($message) use ($info_mail)
+            {
+                $message->from('info@numetracker.app');
+                $message->subject('[Nume Tracker] Tienes una nueva actualización, mensaje generado '.date("Y-m-d H:i:s"));
+                $message->to($info_mail['obj']);
+            });
+
+
+            return redirect('citas')->with('success','Se han guardado los cambios en el record con éxito.');
+        }
+    }
+
+    public function showHcn($id)
+    {
+        $user = User::find($id);
+
+        return view('nutritionist.patient-hcn',compact('user'));
     }
 }

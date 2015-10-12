@@ -75,4 +75,24 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->first_name." ".$this->last_name;
     }
+
+    public function getAge()
+    {
+        $date = time() - strtotime($this->birthday);
+        $age = floor($date / 31556926);
+
+        return " (".$age." años)";
+    }
+
+    public function getGender()
+    {
+        if($this->gender=='masculine'){
+            $gender = 'Masculino';
+        }
+        else{
+            $gender = 'Femenino';
+        }
+
+        return $gender;
+    }
 }

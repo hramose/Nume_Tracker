@@ -67,7 +67,7 @@
               @elseif(Auth::user()->role == 'nutritionist')
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ url('perfil') }}">Perfil</a></li>
-                <li><a href="{{ url('/') }}">Citas</a></li>
+                <li><a href="{{ url('citas') }}">Citas</a></li>
                 <li class="divider"></li>
                 <li><a href="{{ url('cerrar-sesion') }}">Cerrar sesión</a></li>
               </ul>

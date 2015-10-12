@@ -96,6 +96,12 @@
   transform: scale(1.05);
 }
 
+.meeting_item .link-cancelar:hover{
+  color:red !important;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
 </style>
 @endsection
 
@@ -154,13 +160,29 @@
                         </ul>
                         <br>
                         <div class="tab-content">
+                            @if(session('success'))
+                            <div class="alert alert-success">
+                              <span class="glyphicon glyphicon-ok"></span>
+                              &nbsp;&nbsp;&nbsp;{{ session('success') }}
+                            </div>
+                            @endif
+                            @if ( session('errors') )
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                             <div class="tab-pane active" id="tab_default_1">
                                 
                                 @foreach ($meetings as $meeting)
-
+                                @if(!$meeting->isSunday())
                                 <div class="row meeting_item">
-                                  <div class="col-sm-2">
-                                    <a href="{{ url('/') }}" class="thumbnail">
+                                  <div class="col-sm-1" style="padding:0px;">
+                                    <a href="{{ url('paciente/'.$meeting->user_id) }}" class="thumbnail">
                                       @if($meeting->patient->photo == '')
                                       <img src="{{ asset('assets/images/base/no-photo.png') }}" alt="" class="img-responsive img-circle img-thumbnail photo">
                                       @else
@@ -169,27 +191,39 @@
                                     </a>
                                   </div>
                                   <div class="col-sm-3">
-                                      <h4 style="text-transform:none !important; color:#333; font-size:17px;margin-top:15px;">
-                                        <a href="{{ url('/') }}">
+                                      <h4 style="text-transform:none !important; color:#333; font-size:15px;margin-top:15px;">
+                                        <a href="{{ url('paciente/'.$meeting->user_id) }}">
                                           {{ $meeting->patient->getCompleteName() }}
                                         </a>
                                       </h4>
                                   </div>
-                                  <div class="col-sm-5">
+                                  <div class="col-sm-6">
                                     <p style="margin-top:15px; padding-bottom:0px;">
                                       <span class="glyphicon glyphicon-calendar"></span>
                                       {{ $meeting->getScheduleDateTime() }}
                                       &nbsp;&nbsp;
                                       <span class="glyphicon glyphicon-time"></span>
                                       {{ $meeting->getTime() }}
-                                      &nbsp;&nbsp;&nbsp;&nbsp;
+                                      &nbsp;&nbsp;
                                       <span class="glyphicon glyphicon-list-alt"></span>
-                                      <a href="{{ url('/') }}" class="link-hcn">HCN</a>
+                                      <a href="{{ url('paciente/'.$meeting->user_id) }}">HCN</a>
+                                      &nbsp;&nbsp;
+                                      <span class="glyphicon glyphicon-remove-circle"></span>
+                                      <a href="{{ url('citas/'.$meeting->id) }}" class="link-cancelar">Cancelar</a>
                                     </p>
                                   </div>
                                   <div class="col-sm-2">
                                     <p style="margin-top:10px;padding-bottom:0px;">
-                                      <button type="button" class="btn btn-primary btn-sm btn-record" style="text-transform:none !important; padding:7px 23px 7px 10px;">
+                                      <button type="button" class="btn btn-primary btn-sm btn-record" style="text-transform:none !important; padding:7px 23px 7px 10px;"
+                                      data-mid="{{ $meeting->id }}"
+                                      data-weight="{{ $meeting->weight }}"
+                                      data-height="{{ $meeting->height }}"
+                                      data-waist="{{ $meeting->waist }}"
+                                      data-hip="{{ $meeting->hip }}"
+                                      data-armperimeter="{{ $meeting->arm_perimeter }}"
+                                      data-bicipital="{{ $meeting->bicipital }}"
+                                      data-tricipital="{{ $meeting->tricipital }}"
+                                      data-comment="{{ $meeting->comment }}">
                                           <span class="glyphicon glyphicon-pencil"></span>&nbsp;
                                           Record
                                         </button>
@@ -197,7 +231,7 @@
                                   </div>
                                 </div>
                                 <hr class="margin1">
-                                
+                                @endif
                                 @endforeach
 
                                 <div class="row">
@@ -220,23 +254,72 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" style="text-transform:none;">
-          Rgistro de avance 
+        <h4 class="modal-title" style="text-transform:none;color:#333;font-weight:bold;">
+          Registro de avance <span style="font-weight:normal;">(todos los campos son obligatorios)</span>
         </h4>
       </div>
       <div class="modal-body">
         <div class="row">
-          
+          {!! Form::open(array('method' => 'post','class' => 'form-horizontal','style' => 'padding:0 20px 0 20px;','enctype' => 'multipart/form-data')) !!}
+            <input name="id" type="hidden" value="" id="in-id">
+            <h4 style="text-transform:none;margin-left:10px;margin-bottom:20px;">Ficha antropométrica</h4>
+            <div class="form-group">
+              {!! Form::label(null,'Peso (Kg)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('weight',null,array('class' => 'form-control','id' => 'in-weight')) !!}
+              </div>
+              {!! Form::label(null,'Altura (cm)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('height',null,array('class' => 'form-control','id' => 'in-height')) !!}
+              </div>
+              {!! Form::label(null,'Cintura (cm)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('waist',null,array('class' => 'form-control','id' => 'in-waist')) !!}
+              </div>
+            </div>
+            <div class="form-group">
+              {!! Form::label(null,'Cadera (cm)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('hip',null,array('class' => 'form-control','id' => 'in-hip')) !!}
+              </div>
+              {!! Form::label(null,'Perímetro del brazo (cm)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('arm_perimeter',null,array('class' => 'form-control','id' => 'in-arm-perimeter')) !!}
+              </div>
+              {!! Form::label(null,'Pliegue bicipital (mm)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('bicipital',null,array('class' => 'form-control','id' => 'in-bicipital')) !!}
+              </div>
+            </div>
+            <div class="form-group">
+              {!! Form::label(null,'Pliegue tricipital (mm)',array('class' => 'col-sm-2 control-label')) !!}
+              <div class="col-sm-2">
+                {!! Form::text('tricipital',null,array('class' => 'form-control','id' => 'in-tricipital')) !!}
+              </div>
+            </div>
+            <h4 style="text-transform:none;margin-left:10px;margin-bottom:20px;">Plan alimenticio</h4>
+            <div class="form-group">
+              {!! Form::label(null,'Subir archivo (.pdf)',array('class' => 'col-sm-3 control-label')) !!}
+              <div class="col-sm-4">
+                {!! Form::hidden('plan', '') !!}
+                {!! Form::file('plan') !!}
+              </div>
+            </div>
+            <h4 style="text-transform:none;margin-left:10px;margin-bottom:20px;">Minuta</h4>
+            <div class="form-group">
+              <div class="col-sm-12">
+                {!! Form::textarea('comment',null,array('class' => 'form-control','rows'=>'10','id' => 'in-comment')) !!}
+              </div>
+            </div>
+          <div class="modal-footer" style="padding-bottom:0px;">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">
+              <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;
+              Guardar
+            </button>
+          </div>
+          {!! Form::close() !!}
         </div>
-      </div>
-      <div class="modal-footer">
-        {!! Form::open(array('method' => 'post','class' => 'form-horizontal')) !!}
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="submit" id="btn_confirmar" class="btn btn-primary">
-          <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;
-          Guardar
-        </button>
-        {!! Form::close() !!}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -250,6 +333,15 @@
   });
 
   function recordModal() {
+    $('#in-id').val($(this).attr('data-mid'));
+    $('#in-weight').val($(this).attr('data-weight'));
+    $('#in-height').val($(this).attr('data-height'));
+    $('#in-waist').val($(this).attr('data-waist'));
+    $('#in-hip').val($(this).attr('data-hip'));
+    $('#in-arm-perimeter').val($(this).attr('data-armperimeter'));
+    $('#in-bicipital').val($(this).attr('data-bicipital'));
+    $('#in-tricipital').val($(this).attr('data-tricipital'));
+    $('#in-comment').val($(this).attr('data-comment'));
     $('#myModal').modal('show');
   }
 </script>

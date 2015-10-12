@@ -39,6 +39,11 @@ class Meeting extends Model
     	return $this->belongsTo('App\User','nutritionist_id');
     }
 
+    public function isSunday()
+    {
+        return (getdate(strtotime($this->date_time))['wday']==0);
+    }
+
     public function getScheduleDateTime()
     {
         $dt = getdate(strtotime($this->date_time));

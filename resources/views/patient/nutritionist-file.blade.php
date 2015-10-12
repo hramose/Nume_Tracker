@@ -236,7 +236,7 @@ th label:hover{
                             <div class="tab-pane active" id="tab_default_1">
                                 <div class="row" id="nut_item">
                                 	<div class="col-sm-2">
-	                                  	<a href="{{ url('nutriologo/'.$user->id) }}" class="thumbnail" id=>
+	                                  	<a href="{{ url('nutriologo/'.$user->id) }}" class="thumbnail">
 	                                  		@if($user->photo == '')
 	                                  		<img src="{{ asset('assets/images/base/no-photo.png') }}" alt="" class="img-responsive img-circle img-thumbnail" id="photo">
 	                                  		@else

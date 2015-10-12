@@ -30,7 +30,7 @@ Route::post('registro', 'Auth\AuthController@postRegister');
 
 //Direccionamiento segun rol
 
-Route::get('/perfil','UserController@profile');
+Route::get('perfil','UserController@profile');
 
 // Paciente
 
@@ -50,6 +50,9 @@ Route::group(['middleware' => ['auth','is_nutritionist']],function(){
 	Route::get('perfil-nutriologo','NutritionistController@showProfile');
 	Route::post('perfil-nutriologo','NutritionistController@saveProfile');
 	Route::get('citas','NutritionistController@showSchedule');
+	Route::get('citas/{id}','NutritionistController@cancelMeeting');
+	Route::post('citas','NutritionistController@updateMeeting');
+	Route::get('paciente/{id}','NutritionistController@showHcn');
 });
 
 

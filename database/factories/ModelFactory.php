@@ -128,7 +128,7 @@ $factory->define(App\NutritionistFile::class, function (Faker\Generator $faker) 
 $factory->define(App\Meeting::class, function (Faker\Generator $faker) {
     return [
         'user_id' => $faker->randomElement([2,3,4,5,6,7,8,9,10,11,12]),
-        'date_time' => $faker->dateTimeBetween('-1 year','now'),
+        'date_time' => date('Y-m-d H:00:00',strtotime($faker->dateTimeBetween('-1 year','now'))),
         'status' => 'accomplished'
     ];           
 });
