@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 
+
 class PatientController extends Controller
 {
     public function showProfile()
@@ -69,7 +70,7 @@ class PatientController extends Controller
         $user->country = $data['country'];
         $user->save();
 
-        return redirect('perfil-paciente')->with('success','Se han guardado los cambios con êxito.');
+        return redirect('perfil-paciente')->with('success','Se han guardado los cambios con éxito.');
     }
 
     public function showHcn()
@@ -140,5 +141,49 @@ class PatientController extends Controller
 
         return redirect('nutriologo/'.$data['nutritionist_id'])->with('success','Su cita ha sido agendada con êxito.');
 
+    }
+
+    public function showHistory()
+    {
+        $meetings = Meeting::whereRaw('user_id ='.\Auth::user()->id.' and status=\'accomplished\'')
+                           //->orderBy('date_time','ASC')
+                           ->paginate(10);
+
+        return view('patient.history',compact('meetings'));
+    }
+
+    public function updateReview(Request $request)
+    {
+        $data = $request->all();
+        $meeting = Meeting::find($data['id']);
+        $oldReview = $meeting->review;
+        $newReview = $data['review'];
+        $delta = $newReview - $oldReview;
+
+        //Update review
+        $meeting->review = $newReview;
+        $meeting->save();
+
+        //Modify nutritionist score
+        $nutritionistFile = $meeting->nutritionist->nutritionistFile;
+        $currentScore = $nutritionistFile->score;
+        $nutritionistFile->score = $currentScore + $delta;
+        $nutritionistFile->save();
+        
+        return redirect('historial')->with('success','Se han guardado los cambios con éxito.');
+    }
+
+    public function downloadPlan($id)
+    {
+        $meeting = Meeting::find($id);
+        $public_path = public_path();
+        $url = $public_path.'/storage/'.$meeting->plan;
+        //verificamos si el archivo existe y lo retornamos
+        if (\Storage::exists($meeting->plan))
+        {
+            return response()->download($url);
+        }
+        //si no se encuentra lanzamos un error 404.
+        return redirect('historial')->with('file_error','No se ha encontrado el archivo especificado');
     }
 }

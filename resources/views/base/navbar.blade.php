@@ -27,7 +27,7 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-x">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-x" id="boton-movil">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -37,7 +37,7 @@
         </div>
     
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-x">
+        <div class="navbar-collapse collapsed collapse" id="navbar-collapse-x">
           @if(Auth::guest())
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ url('/') }}"><img src="{{ asset('assets/images/base/home-icon.png') }}" alt="home" width="20" id="home"/></a></li>
@@ -45,7 +45,7 @@
             <li><a href="{{ url('registro') }}">Registrarte</a></li>
           </ul>
           @else
-          <ul class="nav navbar-nav nav-collapse collapse in" role="search" id="nav-collapse-h" aria-expanded="true">
+          <ul class="nav navbar-nav nav-collapse" role="search" id="nav-collapse-h" aria-expanded="false">
             <li class="dropdown" id="user">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #303030;padding-bottom:9px; padding-top:11px;">
                 @if(Auth::user()->photo=='')
@@ -60,7 +60,7 @@
                 <li><a href="{{ url('historia-clinica') }}">Historia Clínica</a></li>
                 <li><a href="{{ url('agendar-cita') }}">Agendar cita</a></li>
                 <li><a href="{{ url('/') }}">Seguimiento</a></li>
-                <li><a href="{{ url('/') }}">Historial</a></li>
+                <li><a href="{{ url('historial') }}">Historial</a></li>
                 <li class="divider"></li>
                 <li><a href="{{ url('cerrar-sesion') }}">Cerrar sesión</a></li>
               </ul>

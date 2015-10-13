@@ -81,7 +81,7 @@
                       click en el siguiente enlace:
                       <br>
                       <br>
-                      <a href="#">Mi historial de citas</a>
+                      <a href="http://numetracker.app/iniciar-sesion">Mi historial de citas</a>
                       <br>
                       <br>
                     </td>

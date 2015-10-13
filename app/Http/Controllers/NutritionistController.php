@@ -151,9 +151,11 @@ class NutritionistController extends Controller
             if(is_object($plan)){
                 $name = 'plan_'.$meeting->id.'.pdf';
                 \Storage::disk('local')->put($name,  \File::get($plan));
-                $meeting->plan = $name;
+                $meeting->plan = 'plan_'.$meeting->id.'.pdf';
             }
 
+            $meeting->status = 'accomplished';
+            $meeting->review = 5;
             $meeting->weight = $data['weight']; 
             $meeting->height = $data['height']; 
             $meeting->waist = $data['waist']; 
@@ -161,9 +163,17 @@ class NutritionistController extends Controller
             $meeting->arm_perimeter = $data['arm_perimeter']; 
             $meeting->bicipital = $data['bicipital']; 
             $meeting->tricipital = $data['tricipital']; 
-            $meeting->plan = $data['plan']; 
+            $meeting->bmi = round(floatval(($meeting->weight/pow(($meeting->height/100),2))),1); //Formula IMC
+            $meeting->ideal_weight = round(floatval((0.75*($meeting->height-150))+55),1);
             $meeting->comment = $data['comment']; 
             $meeting->save();
+
+            $nutritionistFile = $meeting->nutritionist->nutritionistFile;
+            $nutritionistFile->reviews = $nutritionistFile->reviews + 1;
+            $currentScore = $nutritionistFile->score;
+            $nutritionistFile->score = $currentScore + 5;
+            $nutritionistFile->ranking = round(($nutritionistFile->score/$nutritionistFile->reviews),1);
+            $nutritionistFile->save();
 
             $info_mail = ['obj' => $meeting->patient->email,'date' => $meeting->getScheduleDateTime(),'name' => $meeting->nutritionist->getCompleteName()];
 
@@ -173,7 +183,6 @@ class NutritionistController extends Controller
                 $message->subject('[Nume Tracker] Tienes una nueva actualización, mensaje generado '.date("Y-m-d H:i:s"));
                 $message->to($info_mail['obj']);
             });
-
 
             return redirect('citas')->with('success','Se han guardado los cambios en el record con éxito.');
         }

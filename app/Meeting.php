@@ -19,8 +19,7 @@ class Meeting extends Model
      * @var array
      */
     protected $fillable = ['user_id','nutritionist_id','date_time','status','review','weight','height','waist','hip',
-    					   'arm_perimeter','bicipital','tricipital','bmi','ideal_weight','card_number',
-    					   'expiration_date','cv_code','name','plan','comment'];
+    					   'arm_perimeter','bicipital','tricipital','bmi','ideal_weight','plan','comment'];
 
     /**
      * The attributes excluded from the model's JSON form.

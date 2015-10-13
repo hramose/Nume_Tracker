@@ -17,7 +17,7 @@ class CreateMeetingsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('nutritionist_id')->unsigned();
             $table->dateTime('date_time');
-            $table->enum('status', ['scheduled','cancelled','accomplished']);
+            $table->enum('status', ['scheduled','accomplished']);
             $table->integer('review')->nullable();
             $table->float('weight')->nullable();
             $table->float('height')->nullable();
@@ -28,10 +28,6 @@ class CreateMeetingsTable extends Migration
             $table->float('tricipital')->nullable();
             $table->float('bmi')->nullable();
             $table->float('ideal_weight')->nullable();
-            $table->string('card_number')->nullable();
-            $table->string('expiration_date')->nullable();
-            $table->string('cv_code')->nullable();
-            $table->string('name')->nullable();
             $table->string('plan')->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();

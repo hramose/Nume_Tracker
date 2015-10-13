@@ -63,8 +63,8 @@
 }
 
 .photo{
-  width:50px;
-  height:50px;
+  width:50px!important;
+  height:50px!important;
 }
 
 .thumbnail,.margin1{
@@ -208,8 +208,13 @@
                                       <span class="glyphicon glyphicon-list-alt"></span>
                                       <a href="{{ url('paciente/'.$meeting->user_id) }}">HCN</a>
                                       &nbsp;&nbsp;
+                                      @if($meeting->status == 'scheduled')
                                       <span class="glyphicon glyphicon-remove-circle"></span>
                                       <a href="{{ url('citas/'.$meeting->id) }}" class="link-cancelar">Cancelar</a>
+                                      @else
+                                      <span class="glyphicon glyphicon-ok-circle" style="color:green;"></span>
+                                      <strong style="color:green;">Asistió</strong>
+                                      @endif
                                     </p>
                                   </div>
                                   <div class="col-sm-2">

@@ -122,7 +122,7 @@ class NutritionistFile extends Model
         $query = 'nutritionist_id = \''.$this->user->id.'\' and date_time = \''.$meetingDate.' '.$hour.':00:00\'';
         $meeting = Meeting::whereRaw($query)->get();
 
-        if(count($meeting) == 0 || $meeting[0]->status == 'cancelled')
+        if(count($meeting) == 0)
         {
             return true;
         }

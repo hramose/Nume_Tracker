@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth','is_patient']],function(){
 	Route::get('agendar-cita','NutritionistController@showDirectory');
 	Route::get('nutriologo/{id}','NutritionistController@showFile');
 	Route::post('nutriologo/{id}','PatientController@schedule');
+	Route::get('historial','PatientController@showHistory');
+	Route::post('historial','PatientController@updateReview');
+	Route::get('historial/descarga/{id}','PatientController@downloadPlan');
 });
 
 //Nutriólogo
