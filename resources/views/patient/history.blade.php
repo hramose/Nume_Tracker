@@ -142,8 +142,8 @@
                                     <span>Seguimiento</span>
                                 </a>
                                 <strong></strong>
-                            </li class="active">
-                            <li>
+                            </li>
+                            <li class="active">
                                 <a href="{{ url('historial') }}">
                                     <span>Historial</span>
                                 </a>

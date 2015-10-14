@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth','is_patient']],function(){
 	Route::get('historial','PatientController@showHistory');
 	Route::post('historial','PatientController@updateReview');
 	Route::get('historial/descarga/{id}','PatientController@downloadPlan');
+	Route::get('seguimiento','PatientController@showStatistics');
 });
 
 //Nutriólogo

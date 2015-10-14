@@ -29,7 +29,7 @@ $factory->defineAs(App\User::class, 'patient', function (Faker\Generator $faker)
         'street' => $faker->streetName,
         'number' => $faker->randomNumber(3),
         'neighborhood' => $faker->stateAbbr,
-        'zip_code' => $faker->postcode,
+        'zip_code' => $faker->numerify('#####'),
         'city' => $faker->city,
         'state' => $faker->state,
         'country' => $faker->country,
@@ -96,7 +96,7 @@ $factory->defineAs(App\User::class, 'nutritionist', function (Faker\Generator $f
         'street' => $faker->streetName,
         'number' => $faker->randomNumber(3),
         'neighborhood' => $faker->stateAbbr,
-        'zip_code' => $faker->postcode,
+        'zip_code' => $faker->numerify('#####'),
         'city' => $faker->city,
         'state' => $faker->state,
         'country' => $faker->country,
@@ -105,13 +105,16 @@ $factory->defineAs(App\User::class, 'nutritionist', function (Faker\Generator $f
 });
 
 $factory->define(App\NutritionistFile::class, function (Faker\Generator $faker) {
+    $fakeReviews = 50;
+    $fakeScore = 250; //$faker->numberBetween($fakeReviews,$fakeReviews*5);
+
     return [
-        'reviews' => $faker->numberBetween(1,100),
-        'score' => $faker->numberBetween(1,500),
-        'ranking' => $faker->randomFloat(2,1,5),
+        'reviews' => $fakeReviews,
+        'score' => $fakeScore,
+        'ranking' => round(floatval($fakeScore/$fakeReviews),1),
         'grade' => 'Lic. Nutrición',
         'license' => $faker->bothify('?#?#?#?#?#?#'),
-        'speciality' => $faker->company,
+        'speciality' => $faker->realText(20,2),
         'about_me' => $faker->realText(100,2),
         'office_phone' => $faker->numerify('##########'),
         'mon' => $faker->boolean,
@@ -126,9 +129,20 @@ $factory->define(App\NutritionistFile::class, function (Faker\Generator $faker) 
 });
 
 $factory->define(App\Meeting::class, function (Faker\Generator $faker) {
+    $fakeWeight = $faker->numberBetween(50,110);
+    $fakeHeight = $faker->numberBetween(150,190);
+        
     return [
         'user_id' => $faker->randomElement([2,3,4,5,6,7,8,9,10,11,12]),
-        'date_time' => date('Y-m-d H:00:00',strtotime($faker->dateTimeBetween('-1 year','now'))),
-        'status' => $faker->randomElement(['scheduled','accomplished']),
+        'review' => 5,
+        'weight' => $fakeWeight,
+        'height' => $fakeHeight,
+        'waist' => $faker->numberBetween(60,100),
+        'hip' => $faker->numberBetween(85,120),
+        'arm_perimeter' => $faker->numberBetween(20,27),
+        'bicipital' => $faker->numberBetween(4,16),
+        'tricipital' => $faker->numberBetween(8,30),
+        'bmi' => round(floatval(($fakeWeight/pow(($fakeHeight/100),2))),1),
+        'ideal_weight' => round(floatval((0.75*($fakeHeight-150))+55),1)
     ];           
 });

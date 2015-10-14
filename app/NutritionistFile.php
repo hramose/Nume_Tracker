@@ -76,11 +76,18 @@ class NutritionistFile extends Model
                               "&nbsp;&nbsp;&nbsp;".$strMDay."</span>\n</div>\n<div class=\"col-xs-10\">\n";
 
                 if($workDays[$wday]){
-                    foreach($this->getAvailableMeetings($i) as $meeting){
-                        $html = $html."<label data-date=\"".$week[$wday]." ".$strMDay." ".
-                                "de ".$this->getMonthYear()."\" data-horary=\"".$meeting.
-                                "\" data-inh=\"".$dateComplete." ".$meeting.":00\"class=\"schedule\">".
-                                $meeting."</label>\n";
+                    $availableMeetings = $this->getAvailableMeetings($i);
+
+                    if(count($availableMeetings)>0){
+                        foreach($availableMeetings as $meeting){
+                            $html = $html."<label data-date=\"".$week[$wday]." ".$strMDay." ".
+                                    "de ".$this->getMonthYear()."\" data-horary=\"".$meeting.
+                                    "\" data-inh=\"".$dateComplete." ".$meeting.":00\"class=\"schedule\">".
+                                    $meeting."</label>\n";
+                        }
+                    }
+                    else{
+                        $html = $html."<p class=\"nd\"><i>Sin disponibilidad de citas</i></p>";
                     }
                 }
                 else{
@@ -111,6 +118,7 @@ class NutritionistFile extends Model
                 else if(getdate()['hours']<$hour){
                     array_push($meetings,date('H:i',strtotime($hour.':00')));
                 }
+                //dd(date('d/m/Y H:i:s'));
             }
         }
 
@@ -126,7 +134,7 @@ class NutritionistFile extends Model
         {
             return true;
         }
-
+    
         return false;
     }
 

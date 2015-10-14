@@ -109,7 +109,7 @@ class NutritionistController extends Controller
 
     public function showSchedule()
     {
-        $meetings = Meeting::where('nutritionist_id','=',\Auth::user()->id)
+        $meetings = Meeting::whereRaw('nutritionist_id = '.\Auth::user()->id)
                            //->orderBy('date_time','ASC')
                            ->paginate(10);
 

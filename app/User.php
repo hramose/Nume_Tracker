@@ -66,7 +66,10 @@ class User extends Model implements AuthenticatableContract,
 
     public function getUrlLocation()
     {
-        $url = str_replace(" ","+",$this->street)."+".$this->number;
+        $url = $this->street.'+'.$this->number.'+'.$this->neighborhood.'+'.$this->zip_code.'+'.
+                $this->city.'+'.$this->state.'+'.$this->country;
+
+        $url = str_replace(" ","+",$url);
 
         return $url;
     }

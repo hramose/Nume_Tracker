@@ -178,12 +178,39 @@ class PatientController extends Controller
         $meeting = Meeting::find($id);
         $public_path = public_path();
         $url = $public_path.'/storage/'.$meeting->plan;
-        //verificamos si el archivo existe y lo retornamos
+        
         if (\Storage::exists($meeting->plan))
         {
             return response()->download($url);
         }
-        //si no se encuentra lanzamos un error 404.
+        
         return redirect('historial')->with('file_error','No se ha encontrado el archivo especificado');
+    }
+
+    public function showStatistics()
+    {
+        $meetings = Meeting::whereRaw('user_id = '.\Auth::user()->id.' and status = \'accomplished\'')
+                            ->orderBy('date_time','DESC')->take(5)->get();
+        
+        if(count($meetings)>0){
+            $last_meeting = $meetings->first();
+            $labels = [];
+            $weights = [];
+            $bmis = [];
+            $waists =[];
+            $hips = [];
+
+            for($i=count($meetings)-1;$i>=0;$i--){
+                array_push($labels,date('j/m/Y',strtotime($meetings[$i]->date_time)));
+                array_push($weights,$meetings[$i]->weight);
+                array_push($bmis,$meetings[$i]->bmi);
+                array_push($waists,$meetings[$i]->waist);
+                array_push($hips,$meetings[$i]->hip);
+            }
+            return view('patient.tracking',compact('last_meeting','labels','weights','bmis','waists','hips'));
+        }
+        else{
+            return redirect('patient.tracking')->with('warning','Aún no has asistido a cita.');
+        }
     }
 }

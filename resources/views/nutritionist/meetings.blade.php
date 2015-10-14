@@ -209,8 +209,13 @@
                                       <a href="{{ url('paciente/'.$meeting->user_id) }}">HCN</a>
                                       &nbsp;&nbsp;
                                       @if($meeting->status == 'scheduled')
-                                      <span class="glyphicon glyphicon-remove-circle"></span>
-                                      <a href="{{ url('citas/'.$meeting->id) }}" class="link-cancelar">Cancelar</a>
+                                        @if(date_add(date_create($meeting->date_time),date_interval_create_from_date_string('2 hour')) >= date_create())
+                                        <span class="glyphicon glyphicon-remove-circle"></span>
+                                        <a href="{{ url('citas/'.$meeting->id) }}" class="link-cancelar">Cancelar</a>
+                                        @else
+                                        <span class="glyphicon glyphicon-remove-circle" style="color:red;"></span>
+                                        <strong style="color:red;">No asistió</strong>
+                                        @endif
                                       @else
                                       <span class="glyphicon glyphicon-ok-circle" style="color:green;"></span>
                                       <strong style="color:green;">Asistió</strong>
@@ -219,6 +224,7 @@
                                   </div>
                                   <div class="col-sm-2">
                                     <p style="margin-top:10px;padding-bottom:0px;">
+                                      @if(!((date_add(date_create($meeting->date_time),date_interval_create_from_date_string('2 hour')) < date_create()) && $meeting->status == 'scheduled'))
                                       <button type="button" class="btn btn-primary btn-sm btn-record" style="text-transform:none !important; padding:7px 23px 7px 10px;"
                                       data-mid="{{ $meeting->id }}"
                                       data-weight="{{ $meeting->weight }}"
@@ -231,7 +237,8 @@
                                       data-comment="{{ $meeting->comment }}">
                                           <span class="glyphicon glyphicon-pencil"></span>&nbsp;
                                           Record
-                                        </button>
+                                      </button>
+                                      @endif
                                     </p>
                                   </div>
                                 </div>
