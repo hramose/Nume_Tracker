@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
                 $fakeStatus = $faker1->randomElement(['scheduled','accomplished']);
 
                 if($fakeStatus == 'accomplished'){
-                    $fakePlan = 'plan_test.pdf';
+                    $fakePlan = $faker1->randomElement(['plan_test.pdf','']);
                     $fakeComment = $faker1->realText(200,4);
                 }
             }
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
                         $fakeStatus = $faker->randomElement(['scheduled','accomplished']);
 
                         if($fakeStatus == 'accomplished'){
-                            $fakePlan = 'plan_test.pdf';
+                            $fakePlan = $faker->randomElement(['plan_test.pdf','']);
                             $fakeComment = $faker->realText(200,4);
                         }
                     }

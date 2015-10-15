@@ -10,21 +10,6 @@
 			<input type="email" name="email" value="{{ Auth::user()->email }}" class="form-control" readonly>
 		</div>
 	</div>
-	<!--<div class="form-group">
-		{!! Form::label(null,'Contraseña *',array('class' => 'col-sm-3 control-label')) !!}
-		<div class="col-sm-5">
-			{!! Form::password('password',array('class' => 'form-control')) !!}
-		</div>
-	</div>
-	<div class="form-group">
-		{!! Form::label(null,'Confirmar contraseña *',array('class' => 'col-sm-3 control-label')) !!}
-		<div class="col-sm-5">
-			{!! Form::password('password_confirmation',array('class' => 'form-control')) !!}
-		</div>
-	</div>
-	<br>
-	<h3 id="subtitulo">Perfil</h3>
-	<br>-->
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="formGroup">
 			@if(Auth::user()->photo == '')

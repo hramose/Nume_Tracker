@@ -98,4 +98,56 @@ class User extends Model implements AuthenticatableContract,
 
         return $gender;
     }
+
+    public function scopeNutritionistName($query,$name)
+    {
+        if(trim($name) != ""){
+            $query->whereRaw("lower(first_name||' '||last_name) LIKE '%".strtolower($name)."%'");
+        }
+    }
+
+    public function scopeUserName($query,$name)
+    {
+        if(trim($name) != ""){
+            $query->whereRaw("lower(first_name||' '||last_name) LIKE '%".strtolower($name)."%'");
+        }
+    }
+
+    public function scopeOrderByOption($query,$option)
+    {
+        if($option!=''){
+            switch ($option) {
+                case 'id_asc':
+                    $query->orderBy('id','ASC');
+                break;
+                case 'id_desc':
+                    $query->orderBy('id','DESC');
+                break;
+                case 'nombre_asc':
+                    $query->orderBy('first_name','ASC');
+                break;
+                case 'nombre_desc':
+                    $query->orderBy('first_name','DESC');
+                break;
+                case 'email_asc':
+                    $query->orderBy('email','ASC');
+                break;
+                case 'email_desc':
+                    $query->orderBy('email','DESC');
+                break;
+            }
+        }
+    }
+
+    public function scopeRole($query,$role)
+    {
+        if($role!=''){
+            if($role == 'paciente'){
+                $query->where('role','patient');
+            }
+            else{
+                $query->where('role','nutritionist');
+            }
+        }
+    }
 }

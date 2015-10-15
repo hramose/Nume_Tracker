@@ -195,6 +195,15 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;Directorio de Nutriólogos&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </li>
+                            {!! Form::model(Request::all(),['url' => 'agendar-cita','method' => 'GET','class' => 'navbar-form navbar-left pull-right','role' => 'search'])!!}
+                              <div class="form-group">
+                                {!! Form::text('nombre',null,['class' => 'form-control','placeholder' => 'Buscar por nombre','style'=>'height:34px;padding:8px 14px 8px 14px;border-radius:4px;']) !!}
+                                {!! Form::select('orden',['ASC' =>'A-Z','DESC' => 'Z-A'],null,['class'=>'form-control','placeholder'=>'Ordenar ...'])!!}
+                              </div>
+                              <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                              </button>
+                            {!! Form::close() !!}
                         </ul>
                         <br>
                         <br>
@@ -243,7 +252,7 @@
 
                                 <div class="row">
                                   <div class="col-sm-12" style="text-align:center;">
-                                    {!! $users->setPath('')->render() !!}
+                                    {!! $users->setPath('')->appends(Request::only(['nombre','orden']))->render() !!}
                                   </div>
                                 </div>
 

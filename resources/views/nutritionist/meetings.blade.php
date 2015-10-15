@@ -157,6 +157,23 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </li>
+                            {!! Form::model(Request::all(),['url' => 'citas','method' => 'GET','class' => 'navbar-form navbar-left pull-right','role' => 'search'])!!}
+                              <div class="form-group">
+
+                                {!! Form::select('mes',[1 =>'Enero',2 => 'Febrero',3 => 'Marzo',4 => 'Abril',5 => 'Mayo',6 => 'Junio',7 => 'Julio',8 => 'Agosto',9 => 'Septiembre',10 => 'Octubre',11 => 'Noviembre',12 => 'Diciembre'],null,['class'=>'form-control','placeholder'=>'Mes'])!!}
+
+                                {!! Form::selectYear('ano', 2010, 2020, null, ['class' => 'form-control','placeholder' => 'Año']) !!}
+
+                                {!! Form::input('time','hora',null,array('class' => 'form-control','style'=>'height:34px;padding:8px 14px 8px 14px;border-radius:4px;')) !!}
+
+                                {!! Form::select('estatus',['programadas' =>'Programadas','realizadas' => 'Realizadas'],null,['class'=>'form-control','placeholder' => 'Estatus'])!!}
+
+                                {!! Form::select('orden',['ASC' =>'Menos recientes','DESC' => 'Más recientes'],null,['class'=>'form-control','placeholder'=>'Ordenar ...'])!!}
+                              </div>
+                              <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                              </button>
+                            {!! Form::close() !!}
                         </ul>
                         <br>
                         <div class="tab-content">
@@ -248,7 +265,7 @@
 
                                 <div class="row">
                                   <div class="col-sm-12" style="text-align:center;">
-                                    {!! $meetings->setPath('')->render() !!}
+                                    {!! $meetings->setPath('')->appends(Request::only(['mes','ano','hora','estatus','orden']))->render() !!}
                                   </div>
                                 </div>
                             </div>

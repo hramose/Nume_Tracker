@@ -93,9 +93,18 @@ class NutritionistController extends Controller
         return redirect('perfil-nutriologo')->with('success','Se han guardado los cambios con éxito.');
     }
 
-    public function showDirectory()
+    public function showDirectory(Request $request)
     {
-        $users = User::where('role', '=', 'nutritionist')->paginate(5);
+        $sort = $request->get('orden');
+
+        if($sort == ''){
+            $sort = 'ASC';
+        }
+
+        $users = User::where('role','nutritionist')
+                        ->nutritionistname($request->get('nombre'))
+                        ->orderBy('first_name',$sort)
+                        ->paginate(5);
 
         return view('patient.nutritionist-list',compact('users'));
     }
@@ -107,10 +116,18 @@ class NutritionistController extends Controller
         return view('patient.nutritionist-file',compact('user'));
     }
 
-    public function showSchedule()
+    public function showSchedule(Request $request)
     {
+        $sort= $request->get('orden');
+
+        if($sort == ''){ $sort = 'DESC'; }
+
         $meetings = Meeting::whereRaw('nutritionist_id = '.\Auth::user()->id)
-                           //->orderBy('date_time','ASC')
+                           ->wheremonth($request->get('mes'))
+                           ->whereyear($request->get('ano'))
+                           ->wheretime($request->get('hora'))
+                           ->wherestatus($request->get('estatus'))
+                           ->orderBy('date_time',$sort)
                            ->paginate(10);
 
         return view('nutritionist.meetings',compact('meetings'));

@@ -59,6 +59,12 @@ Route::group(['middleware' => ['auth','is_nutritionist']],function(){
 	Route::get('paciente/{id}','NutritionistController@showHcn');
 });
 
+Route::group(['middleware' => ['auth','is_admin']],function(){
+	Route::get('admon-usuarios','AdminController@showUsersList');
+	Route::post('admon-usuarios','AdminController@deleteUser');
+	Route::get('paciente/{id}','AdminController@showPatientProfile');
+});
+
 
 /*
 // Password reset link request routes...

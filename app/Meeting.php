@@ -55,9 +55,50 @@ class Meeting extends Model
 
     public function getTime()
     {
-        $hours = date('h',strtotime($this->date_time));
-        $min = date('i',strtotime($this->date_time));
+        $time = date('H:i',strtotime($this->date_time));
 
-        return $hours.":".$min;
+        return $time;
+    }
+
+    public function scopeWhereDate($query,$date)
+    {
+        if($date != ''){
+            $query->whereRaw("date_time::timestamp::date = '".$date."'");
+        }
+    }
+
+    public function scopeWhereTime($query,$time)
+    {
+        if($time != ''){
+            $query->whereRaw("date_time::timestamp::time = '".$time."'");
+        }
+    }
+
+    public function scopeWhereMonth($query,$month)
+    {
+        if($month != ''){
+            $query->whereRaw("EXTRACT(MONTH FROM date_time::timestamp::date) = '".$month."'");
+        }
+    }
+
+    public function scopeWhereYear($query,$year)
+    {
+        if($year != ''){
+            $query->whereRaw("EXTRACT(YEAR FROM date_time::timestamp::date) = '".$year."'");
+        }
+    }
+
+    public function scopeWhereStatus($query,$status)
+    {
+        if($status != ''){
+            if($status == 'programadas'){
+                $status = 'scheduled';
+            }
+            else{
+                $status = 'accomplished';
+            }
+
+            $query->whereRaw("status = '".$status."'");
+        }
     }
 }

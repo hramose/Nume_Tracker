@@ -24,7 +24,7 @@ class UserController extends Controller
 				return redirect('perfil-nutriologo');
 			break;
 			default:
-				return redirect('/');
+				return redirect('admon-usuarios');
 			break;
 		}
     }

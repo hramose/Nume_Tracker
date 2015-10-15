@@ -181,6 +181,16 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;Histórico de citas&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </li>
+                            {!! Form::model(Request::all(),['url' => 'historial','method' => 'GET','class' => 'navbar-form navbar-left pull-right','role' => 'search'])!!}
+                              <div class="form-group">
+                                {!! Form::date('fecha',null,array('class'=>'form-control','style'=>'height:34px;padding:8px 14px 8px 14px;border-radius:4px;')) !!}
+                                {!! Form::input('time','hora',null,array('class' => 'form-control','style'=>'height:34px;padding:8px 14px 8px 14px;border-radius:4px;')) !!}
+                                {!! Form::select('orden',['ASC' =>'Menos recientes','DESC' => 'Más recientes'],null,['class'=>'form-control','placeholder'=>'Ordenar ...'])!!}
+                              </div>
+                              <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                              </button>
+                            {!! Form::close() !!}
                         </ul>
                         <br>
                         <br>
@@ -219,7 +229,7 @@
 
                                       <div class="row meeting_item">
                                         <div class="col-sm-1" style="padding:0px;">
-                                          <a href="{{ url('/') }}" class="thumbnail">
+                                          <a href="{{ url('nutriologo/'.$meeting->nutritionist_id) }}" class="thumbnail">
                                             @if($meeting->nutritionist->photo == '')
                                             <img src="{{ asset('assets/images/base/no-photo.png') }}" alt="" class="img-responsive img-circle img-thumbnail photo">
                                             @else
@@ -229,7 +239,7 @@
                                         </div>
                                         <div class="col-sm-3">
                                             <h4 style="text-transform:none !important; color:#333; font-size:15px;margin-top:15px;">
-                                              <a href="{{ url('/') }}">
+                                              <a href="{{ url('nutriologo/'.$meeting->nutritionist_id) }}">
                                                 {{ $meeting->nutritionist->getCompleteName() }}
                                               </a>
                                             </h4>
@@ -339,7 +349,7 @@
 
                                 <div class="row">
                                   <div class="col-sm-12" style="text-align:center;">
-                                    {!! $meetings->setPath('')->render() !!}
+                                    {!! $meetings->setPath('')->appends(Request::only(['fecha','hora','orden']))->render() !!}
                                   </div>
                                 </div>
                             </div>

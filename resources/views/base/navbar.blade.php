@@ -73,7 +73,7 @@
               </ul>
               @elseif(Auth::user()->role == 'admin')
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ url('/') }}">Panel de administración</a></li>
+                <li><a href="{{ url('admon-usuarios') }}">Admón. de usuarios</a></li>
                 <li class="divider"></li>
                 <li><a href="{{ url('cerrar-sesion') }}">Cerrar sesión</a></li>
               </ul>

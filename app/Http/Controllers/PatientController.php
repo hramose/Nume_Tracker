@@ -143,10 +143,18 @@ class PatientController extends Controller
 
     }
 
-    public function showHistory()
+    public function showHistory(Request $request)
     {
+        $sort = $request->get('orden');
+
+        if($sort == ''){
+            $sort = 'DESC';
+        }
+        //dd('fecha: '.$request->get('fecha').' hora: '.$request->get('hora'));
         $meetings = Meeting::whereRaw('user_id ='.\Auth::user()->id.' and status=\'accomplished\'')
-                           //->orderBy('date_time','ASC')
+                           ->wheredate($request->get('fecha'))
+                           ->wheretime($request->get('hora'))
+                           ->orderBy('date_time',$sort)
                            ->paginate(10);
 
         return view('patient.history',compact('meetings'));
@@ -167,7 +175,9 @@ class PatientController extends Controller
         //Modify nutritionist score
         $nutritionistFile = $meeting->nutritionist->nutritionistFile;
         $currentScore = $nutritionistFile->score;
+        //dd('oldReview: '.$oldReview.' newReview: '.$newReview.' delta: '.$delta." currentScore".$currentScore);
         $nutritionistFile->score = $currentScore + $delta;
+        $nutritionistFile->ranking = round(floatval($nutritionistFile->score / $nutritionistFile->reviews),1);
         $nutritionistFile->save();
         
         return redirect('historial')->with('success','Se han guardado los cambios con éxito.');
