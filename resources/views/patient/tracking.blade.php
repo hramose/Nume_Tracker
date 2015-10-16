@@ -176,19 +176,19 @@
                                 <div class="col-sm-4">
                                   <p>
                                     <img class="icon" src="{{ asset('assets/images/base/weight.png') }}" alt="">
-                                    &nbsp;&nbsp;<strong><i>Peso : </i></strong> {{ $last_meeting->weight }} (kg)
+                                    &nbsp;&nbsp;<strong><i style="color:#298A08;">Peso : </i></strong> {{ $last_meeting->weight }} (kg)
                                   </p>
                                   <p>
-                                    <img class="icon" src="{{ asset('assets/images/base/height.png') }}" alt="">
-                                    &nbsp;&nbsp;<strong><i>Altura : </i></strong> {{ ($last_meeting->height/100) }} (m)
+                                    <img class="icon" src="{{ asset('assets/images/base/bmi.png') }}" alt="">
+                                    &nbsp;&nbsp;<strong><i style="color:#B40431;">IMC : </i></strong> {{ $last_meeting->bmi }} (mm)
                                   </p>
                                   <p>
                                     <img class="icon" src="{{ asset('assets/images/base/waist.png') }}" alt="">
-                                    &nbsp;&nbsp;<strong><i>Cintura : </i></strong> {{ $last_meeting->waist }} (cm)
+                                    &nbsp;&nbsp;<strong><i style="color:#045FB4;">Cintura : </i></strong> {{ $last_meeting->waist }} (cm)
                                   </p>
                                   <p>
                                     <img class="icon" src="{{ asset('assets/images/base/hip.png') }}" alt="">
-                                    &nbsp;&nbsp;<strong><i>Cadera : </i></strong> {{ $last_meeting->hip }} (cm)
+                                    &nbsp;&nbsp;<strong><i style="color:#e9e225;">Cadera : </i></strong> {{ $last_meeting->hip }} (cm)
                                   </p>
                                   <p>
                                     <img class="icon" src="{{ asset('assets/images/base/arm-perimeter.png') }}" alt="">
@@ -197,16 +197,16 @@
                                 </div>
                                 <div class="col-sm-4">
                                   <p>
+                                    <img class="icon" src="{{ asset('assets/images/base/height.png') }}" alt="">
+                                    &nbsp;&nbsp;<strong><i>Altura : </i></strong> {{ ($last_meeting->height/100) }} (m)
+                                  </p>
+                                  <p>
                                     <img class="icon" src="{{ asset('assets/images/base/btcipital.png') }}" alt="">
                                     &nbsp;&nbsp;<strong><i>Pliegue bicipital : </i></strong> {{ $last_meeting->bicipital }} (mm)
                                   </p>
                                   <p>
                                     <img class="icon" src="{{ asset('assets/images/base/btcipital.png') }}" alt="">
                                     &nbsp;&nbsp;<strong><i>Pliegue tricipital : </i></strong> {{ $last_meeting->tricipital }} (mm)
-                                  </p>
-                                  <p>
-                                    <img class="icon" src="{{ asset('assets/images/base/bmi.png') }}" alt="">
-                                    &nbsp;&nbsp;<strong><i>IMC : </i></strong> {{ $last_meeting->bmi }} (mm)
                                   </p>
                                   <p>
                                     <img class="icon" src="{{ asset('assets/images/base/ideal-weight.png') }}" alt="">
@@ -236,9 +236,9 @@
                                             datasets : [
                                               {
                                                 label: "Peso",
-                                                fillColor : "rgba(220,220,220,0.2)",
-                                                strokeColor : "#6b9dfa",
-                                                pointColor : "#1e45d7",
+                                                fillColor : "rgba(1,223,58,0.2)",
+                                                strokeColor : "#298A08",
+                                                pointColor : "#01DF3A",
                                                 pointStrokeColor : "#fff",
                                                 pointHighlightFill : "#fff",
                                                 pointHighlightStroke : "rgba(220,220,220,1)",
@@ -246,9 +246,9 @@
                                               },
                                               {
                                                 label: "IMC",
-                                                fillColor : "rgba(151,187,205,0.2)",
-                                                strokeColor : "#e9e225",
-                                                pointColor : "#faab12",
+                                                fillColor : "rgba(255,0,64,0.2)",
+                                                strokeColor : "#B40431",
+                                                pointColor : "#FF0040",
                                                 pointStrokeColor : "#fff",
                                                 pointHighlightFill : "#fff",
                                                 pointHighlightStroke : "rgba(151,187,205,1)",
@@ -256,9 +256,9 @@
                                               },
                                               {
                                                 label: "Cintura",
-                                                fillColor : "rgba(220,220,220,0.2)",
-                                                strokeColor : "rgba(172,220,60,1)",
-                                                pointColor : "#1e45d7",
+                                                fillColor : "rgba(0,191,255,0.2)",
+                                                strokeColor : "#045FB4",
+                                                pointColor : "#00BFFF",
                                                 pointStrokeColor : "#fff",
                                                 pointHighlightFill : "#fff",
                                                 pointHighlightStroke : "rgba(220,220,220,1)",
@@ -266,9 +266,9 @@
                                               },
                                               {
                                                 label: "Cadera",
-                                                fillColor : "rgba(151,187,205,0.2)",
+                                                fillColor : "rgba(247,211,88,0.2)",
                                                 strokeColor : "#e9e225",
-                                                pointColor : "#faab12",
+                                                pointColor : "#F7D358",
                                                 pointStrokeColor : "#fff",
                                                 pointHighlightFill : "#fff",
                                                 pointHighlightStroke : "rgba(151,187,205,1)",

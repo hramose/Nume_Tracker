@@ -104,14 +104,14 @@
 <div id="content">
     <div class="container">
         <div class="row">
-            <hr class="margin1">
+          <hr class="margin1">
             <div class="col-sm-offset-1 col-sm-10">
                 <div class="tabbable-panel">
                     <div class="tabbable-line">
                         <ul class="nav nav-tabs ">
                             <li class="active">
                                 <a href="#tab_default_1" data-toggle="tab">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;Modificación de perfil del paciente&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Modificación de perfil de Nutriólogo&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             </li>
                             <a href="javascript:history.back()">
@@ -139,13 +139,13 @@
                             </div>
                             @endif
                             <div class="tab-pane active" id="tab_default_1">
-                                @include('admin.p-form')
+                                @include('admin.n-form')
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <hr class="margin1">
+          <hr class="margin1">
         </div>
     </div>
 </div>

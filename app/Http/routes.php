@@ -59,10 +59,15 @@ Route::group(['middleware' => ['auth','is_nutritionist']],function(){
 	Route::get('paciente/{id}','NutritionistController@showHcn');
 });
 
+//Administrador
+
 Route::group(['middleware' => ['auth','is_admin']],function(){
 	Route::get('admon-usuarios','AdminController@showUsersList');
 	Route::post('admon-usuarios','AdminController@deleteUser');
 	Route::get('paciente/{id}','AdminController@showPatientProfile');
+	Route::post('paciente/{id}','AdminController@updatePatientProfile');
+	Route::get('nutriologo-p/{id}','AdminController@showNutritionistProfile');
+	Route::post('nutriologo-p/{id}','AdminController@updateNutritionistProfile');
 });
 
 
